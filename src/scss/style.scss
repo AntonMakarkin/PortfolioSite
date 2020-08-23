@@ -9,27 +9,49 @@
 }
 
 @import "fonts";
+@import "normalize";
+@import "startsettings";
+
+
+@mixin fontFamily($ff: ('Roboto', sans-serif)) {
+    font-family: $ff;
+}
+
+@mixin fonts($fsz, $fw, $fc: #000000, $ff: ('Roboto', sans-serif)) {
+    font-size: $fsz;
+    color: $fc;
+    font-weight: $fw;
+}
+
+
 
 body {
-    font-size: 26px;
+    @include fontFamily();
+}
+
+.header {
+    margin: auto;
+    width: 80%;
     display: flex;
-    background: url("../img/room.jpg") 0 0 no-repeat;
-    font-family: Roboto;
-    font-weight: 100;
-}
+    justify-content: space-between;
+    padding: 20px 0;
 
-span {
-    font-size: 20px;
-    @media (max-width: 767px) {
-        font-size: 15px;
+    .logo {
+        @include fonts(24px, 100, ('Raleway', sans-serif));
+    }
+
+    .main_nav > .main_nav_list {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+
+        .main_nav_list_item > a{
+            @include fonts(12px, 700);
+            text-transform: uppercase;
+            margin-left: 25px;
+        }
     }
 }
 
-div .main{
-    font-size: 30px;
-    @media (max-width: 767px) {
-        font-size: 20px;
-    }
-    width: 500px;
-    height: 200px;
-}
+
+

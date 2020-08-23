@@ -1,5 +1,3 @@
-alert('Hello Gulp!');
-
 function testWebP(callback) {
 
     var webP = new Image();
