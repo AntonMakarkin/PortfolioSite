@@ -327,7 +327,10 @@ p {
   width: 390px;
   height: 390px;
   border-radius: 50%;
-  border: 1px solid #565656;
+  border: 5px solid #565656;
+  background-image: url(../img/portret.jpg);
+  background-repeat: no-repeat;
+  background-position: -20px -50px;
 }
 
 .work_with_me .container {
@@ -422,3 +425,5 @@ p {
 .education .container .education_description .ed_full_description .ed_last_item {
   border: 1px solid transparent;
 }
+
+.webp .main .container .description .portret { background-image: url(../img/portret.webp); }

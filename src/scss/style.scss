@@ -119,7 +119,10 @@ p {
                 width: 390px;
                 height: 390px;
                 border-radius: 50%;
-                border: 1px solid $grey;
+                border: 5px solid $grey;
+                background-image: url(../img/portret.jpg);
+                background-repeat: no-repeat;
+                background-position: -20px -50px;
             }
         }
     }
