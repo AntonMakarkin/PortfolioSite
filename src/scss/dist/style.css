@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Roboto";
   font-display: swap;
@@ -228,17 +229,37 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.header {
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p {
+  line-height: 28px;
+  font-size: 16px;
+  color: #565656;
+}
+
+.container {
   margin: auto;
   width: 80%;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.header {
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
 }
 .header .logo {
   font-size: 24px;
-  color: "Raleway", sans-serif;
+  color: #000000;
   font-weight: 100;
+  font-style: "Raleway", sans-serif;
 }
 .header .main_nav > .main_nav_list {
   display: flex;
@@ -247,21 +268,124 @@ body {
 }
 .header .main_nav > .main_nav_list .main_nav_list_item > a {
   font-size: 12px;
-  color: #000000;
   font-weight: 700;
+  color: #000000;
   text-transform: uppercase;
   margin-left: 25px;
 }
 
 .main .container {
   padding-top: 100px;
-  margin: auto;
-  width: 80%;
+  padding-bottom: 200px;
 }
-.main .container h1 {
-  font-size: 50px;
+.main .container .description {
+  display: flex;
+  justify-content: space-between;
+}
+.main .container .description .text_description {
+  width: 40%;
+  padding-top: 40px;
+}
+.main .container .description .text_description span {
+  display: block;
+  margin-bottom: 5px;
   color: #000000;
-  font-weight: 700;
+}
+.main .container .description .text_description h1 {
+  font-size: 50px;
+  font-weight: 900;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 20px;
+}
+.main .container .description .text_description p {
+  margin-bottom: 40px;
+}
+.main .container .description .text_description .button_contact_to_me {
+  background-color: #000000;
+  width: 285px;
+  height: 65px;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.main .container .description .portret {
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  border: 1px solid #565656;
+}
+
+.work_with_me .container {
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+.work_with_me .container h2 {
+  margin-bottom: 50px;
+}
+.work_with_me .container .description_cards {
+  display: flex;
+  justify-content: space-between;
+}
+.work_with_me .container .description_cards .description_card {
+  width: 300px;
+}
+.work_with_me .container .description_cards .description_card img {
+  margin-bottom: 20px;
+}
+.work_with_me .container .description_cards .description_card h3 {
+  margin-bottom: 15px;
+}
+
+.skills .container .skills_description {
+  display: flex;
+  justify-content: space-between;
+}
+.skills .container .skills_description h2 {
+  margin-bottom: 20px;
+}
+.skills .container .skills_description .skill_item {
+  line-height: 28px;
+  color: #565656;
+}
+.skills .container .skills_description .skill_item {
+  list-style-type: none;
+}
+.skills .container .skills_description .skill_item:before {
+  color: #000000;
+  content: "•";
+  padding-right: 13px;
+}
+.skills .container .skills_description .short_description {
+  width: 40%;
+}
+
+.education .container .education_description {
+  display: flex;
+  justify-content: space-between;
+}
+.education .container .education_description .ed_short_description {
+  width: 40%;
+}
+.education .container .education_description .ed_short_description h2 {
+  margin-bottom: 20px;
+}
+.education .container .education_description .ed_full_description .education_item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e3e3e3;
+}
+.education .container .education_description .ed_full_description .education_item .item_header {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+.education .container .education_description .ed_full_description .education_item .item_header h3 {
+  margin-right: 10px;
+}
+.education .container .education_description .ed_full_description .education_item span {
+  display: block;
+  margin-bottom: 15px;
+  color: #565656;
+}
+.education .container .education_description .ed_full_description .ed_last_item {
+  border: 1px solid transparent;
 }

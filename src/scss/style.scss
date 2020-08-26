@@ -12,34 +12,51 @@
 @import "normalize";
 @import "startsettings";
 
-$font: 'Roboto', sans-serif;
+$font: ('Roboto', sans-serif);
 $black: #000000;
+$grey: #565656;
+$white: #FFFFFF;
 
-@mixin fontFamily($ff: $font) {
-    font-family: $ff;
-}
 
-@mixin fonts($fsz, $fw, $fc: $black, $ff: $font) {
+@mixin fonts($fsz, $fw: 400, $fc: $black, $ff: $font) {
     font-size: $fsz;
     color: $fc;
     font-weight: $fw;
+    font-style: $ff;
 }
 
-
-
 body {
-    @include fontFamily();
+    font-family: $font;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    line-height: 28px;
+    font-size: 16px;
+    color: $grey;
+}
+
+.container {
+    margin: auto;
+    width: 80%;
+    padding-top: 120px;
+    padding-bottom: 80px;
 }
 
 .header {
-    margin: auto;
-    width: 80%;
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
 
     .logo {
-        @include fonts(24px, 100, ('Raleway', sans-serif));
+        @include fonts(24px, 100, $black, ('Raleway', sans-serif));
     }
 
     .main_nav > .main_nav_list {
@@ -47,8 +64,10 @@ body {
         justify-content: space-between;
         list-style: none;
 
-        .main_nav_list_item > a{
-            @include fonts(12px, 700);
+        .main_nav_list_item > a {
+            font-size: 12px;
+            font-weight: 700;
+            color: $black;
             text-transform: uppercase;
             margin-left: 25px;
         }
@@ -56,15 +75,164 @@ body {
 }
 
 .main {
+
     .container {
         padding-top: 100px;
-        margin: auto;
-        width: 80%;
+        padding-bottom: 200px;
 
-        h1 {
-            @include fonts(50px, 700);
-            margin-top: 0;
-            margin-bottom: 0;
+        .description {
+            display: flex;
+            justify-content: space-between;
+
+            .text_description {
+                width: 40%;
+                padding-top: 40px;
+
+                span {
+                    display: block;
+                    margin-bottom: 5px;
+                    color: $black;
+                }
+        
+                h1 {
+                    font-size: 50px;
+                    font-weight: 900;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                }
+    
+                p {
+                    margin-bottom: 40px;
+                }
+
+                .button_contact_to_me {
+                    background-color: $black;
+                    width: 285px;
+                    height: 65px;
+                    border-radius: 5px;
+                    color: $white;
+                }
+
+            }
+
+            .portret {
+                width: 390px;
+                height: 390px;
+                border-radius: 50%;
+                border: 1px solid $grey;
+            }
+        }
+    }
+}
+
+.work_with_me {
+
+    .container {
+        padding-top: 30px;
+        padding-bottom: 80px;
+
+        h2 {
+            margin-bottom: 50px;
+        }
+
+        .description_cards {
+            display: flex;
+            justify-content: space-between;
+
+            .description_card {
+                width: 300px;
+
+                img {
+                    margin-bottom: 20px;
+                }
+
+                h3 {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+.skills {
+
+    .container {
+
+        .skills_description {
+            display: flex;
+            justify-content: space-between;
+
+            h2{
+                margin-bottom: 20px;
+            }
+
+            .skill_item {
+                line-height: 28px;
+                color: $grey;
+            }
+
+            .skill_item {
+                list-style-type: none;
+            }
+
+            .skill_item:before {
+                color: $black;
+                content: "\2022";
+                padding-right: 13px;
+            }
+
+            .short_description {
+                width: 40%;
+
+            }
+        }
+    }
+}
+
+.education {
+
+    .container {
+
+        .education_description {
+            display: flex;
+            justify-content: space-between;
+
+            .ed_short_description {
+                width: 40%;
+
+                h2 {
+                    margin-bottom: 20px;
+                }
+            }
+
+            .ed_full_description {
+
+                .education_item {
+                    padding-bottom: 20px;
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid #e3e3e3;
+
+                    .item_header {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-bottom: 5px;
+
+                        h3 {
+                            margin-right: 10px;
+                        }
+                    }
+
+                    span {
+                        display: block;
+                        margin-bottom: 15px;
+                        color: $grey;
+                    };
+                }
+
+                .ed_last_item {
+                    border: 1px solid transparent;
+                }
+            }
         }
     }
 }
