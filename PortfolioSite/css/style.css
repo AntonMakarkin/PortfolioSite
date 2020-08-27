@@ -330,7 +330,7 @@ p {
   border: 5px solid #565656;
   background-image: url(../img/portret.jpg);
   background-repeat: no-repeat;
-  background-position: -20px -50px;
+  background-position: -30px -50px;
 }
 
 .work_with_me .container {
@@ -424,6 +424,28 @@ p {
 
 .education .container .education_description .ed_full_description .ed_last_item {
   border: 1px solid transparent;
+}
+
+.portfolio .container h2 {
+  margin-bottom: 20px;
+}
+
+.portfolio .container .portfolio_items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.portfolio .container .portfolio_items .portfolio_item {
+  width: 270px;
+  border-radius: 5px;
+}
+
+.portfolio .container .portfolio_items .portfolio_item img {
+  display: block;
+  border-radius: 3px;
+  width: 100%;
 }
 
 .webp .main .container .description .portret { background-image: url(../img/portret.webp); }
