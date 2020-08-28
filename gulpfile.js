@@ -15,13 +15,15 @@ let path = {
         css: sourceFolder + "/scss/style.scss",
         js: sourceFolder + "/js/script.js",
         img: sourceFolder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
-        fonts: sourceFolder + "/fonts/*.ttf"
+        fonts: sourceFolder + "/fonts/*.ttf",
+        portretImg: sourceFolder + "/portretImg/**/*.{jpg,png,svg,gif,ico,webp}"
     },
     watch:{
         html: sourceFolder + "/**/*.html",
         css: sourceFolder + "/scss/**/*.scss",
         js: sourceFolder + "/js/**/*.js",
-        img: sourceFolder + "/img/**/*.{jpg,png,svg,gif,ico,webp}"
+        img: sourceFolder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
+        portretImg: sourceFolder + "/portretImg/**/*.{jpg,png,svg,gif,ico,webp}"
     },
     clean: "./" + projectFolder + "/"
 };
@@ -106,11 +108,32 @@ function js() {
        .pipe(browsersync.stream());
 }
 
+function portretImage() {
+    return src(path.src.portretImg)
+       .pipe(
+           webp({
+               quality: 100
+           })
+       )
+       .pipe(dest(path.build.img))
+       .pipe(src(path.src.portretImg))
+       .pipe(
+           imagemin({
+               progressive: true,
+               svgoPlugins: [{removeViewBox: false}],
+               interlaced: true,
+               optimizationLevel: 2
+           })
+       )
+       .pipe(dest(path.build.img))
+       .pipe(browsersync.stream());
+}
+
 function images() {
     return src(path.src.img)
        .pipe(
            webp({
-               quality: 100
+               quality: 80
            })
        )
        .pipe(dest(path.build.img))
@@ -120,7 +143,7 @@ function images() {
                progressive: true,
                svgoPlugins: [{ removeViewBox: false }],
                interlaced: true,
-               optimizationLevel: 3
+               optimizationLevel: 2
            })
        )
        .pipe(dest(path.build.img))
@@ -188,18 +211,20 @@ function watchFiles() {
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.img], images);
+    gulp.watch([path.watch.portretImg], portretImage);
 }
 
 function clean() {
     return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, portretImage), fontsStyle);
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
 exports.images = images;
+exports.portretImage = portretImage;
 exports.js = js;
 exports.css = css;
 exports.html = html;
