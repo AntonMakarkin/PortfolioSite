@@ -434,20 +434,21 @@ p {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-content: space-between;
 }
 
 .portfolio .container .portfolio_items .portfolio_item {
   width: 270px;
   padding-bottom: 20px;
   border-radius: 3px;
+  margin-top: 20px;
   margin-bottom: 20px;
   background-color: #FFFFFF;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-in-out;
 }
 
 .portfolio .container .portfolio_items .portfolio_item:hover {
-  transform: scale(1.35, 1.35);
+  transform: scale(1.3, 1.3);
+  z-index: 1;
   border: 1px solid #E6E6E6;
   cursor: pointer;
 }
@@ -458,7 +459,6 @@ p {
   border-radius: 3px 3px 0 0;
   width: 100%;
   margin-bottom: 15px;
-  border-bottom: 1px solid #E6E6E6;
 }
 
 .portfolio .container .portfolio_items .portfolio_item .project_description {
