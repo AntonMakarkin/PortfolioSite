@@ -8,35 +8,37 @@
 </head>
 <body>
     <header>
-        <div class="header container">
-            <div class="logo">
-                <span>AntonM.</span>
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    <span>AntonM.</span>
+                </div>
+                <nav class="main_nav">
+                    <ul class="main_nav_list">
+                        <li class="main_nav_list_item">
+                            <a href="#">Главная</a>
+                        </li>
+                        <li class="main_nav_list_item">
+                            <a href="#">Работа со мной</a>
+                        </li>
+                        <li class="main_nav_list_item">
+                            <a href="#">Навыки</a>
+                        </li>
+                        <li class="main_nav_list_item">
+                            <a href="#">Образование</a>
+                        </li>
+                        <li class="main_nav_list_item">
+                            <a href="#">Портфолио</a>
+                        </li>
+                        <li class="main_nav_list_item">
+                            <a href="#">Рассчитать</a>
+                        </li>
+                        <li class="main_nav_list_item">
+                            <a href="#">Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <nav class="main_nav">
-                <ul class="main_nav_list">
-                    <li class="main_nav_list_item">
-                        <a href="#">Главная</a>
-                    </li>
-                    <li class="main_nav_list_item">
-                        <a href="#">Работа со мной</a>
-                    </li>
-                    <li class="main_nav_list_item">
-                        <a href="#">Навыки</a>
-                    </li>
-                    <li class="main_nav_list_item">
-                        <a href="#">Образование</a>
-                    </li>
-                    <li class="main_nav_list_item">
-                        <a href="#">Портфолио</a>
-                    </li>
-                    <li class="main_nav_list_item">
-                        <a href="#">Рассчитать</a>
-                    </li>
-                    <li class="main_nav_list_item">
-                        <a href="#">Контакты</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </header>
     <main>
@@ -213,7 +215,17 @@
         </section>
         <section class="calculation">
             <div class="container">
-
+                <div class="calculator_wrapper">
+                    <h2>Рассчитать стоимость проекта</h2>
+                    <p>Полученная стоимость является примерной. 
+                    Окончательная цена будет установлена после получения макета и личной оценки.</p>
+                    <div class="calculator">
+                        <input type="checkbox" id="landingButton" name="landingButton">
+                        <label for="landingButton">Одностраничный сайт</label>
+                        <input type="checkbox" id="siteButton" name="siteButton">
+                        <label for="siteButton">Многостраничный сайт</label>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

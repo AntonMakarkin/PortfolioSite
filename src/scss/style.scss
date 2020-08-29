@@ -52,30 +52,36 @@ p {
 }
 
 .description {
-    //display: flex;
-    //align-items: center;
+    display: flex;
+    align-items: center;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
+header .container {
+    padding: 0;
 
-    .logo {
-        @include fonts(24px, 100, $black, ('Raleway', sans-serif));
-    }
-
-    .main_nav > .main_nav_list {
+    .header {
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        list-style: none;
-
-        .main_nav_list_item > a {
-            font-size: 12px;
-            font-weight: 700;
-            color: $black;
-            text-transform: uppercase;
-            margin-left: 25px;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    
+        .logo {
+            @include fonts(24px, 100, $black, ('Raleway', sans-serif));
+        }
+    
+        .main_nav > .main_nav_list {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+    
+            .main_nav_list_item > a {
+                font-size: 12px;
+                font-weight: 700;
+                color: $black;
+                text-transform: uppercase;
+                margin-left: 25px;
+            }
         }
     }
 }
@@ -250,30 +256,35 @@ p {
 
     .container {
 
-        h2 {
-            margin-bottom: 50px;
-        } 
-
         .portfolio_items {
+            padding-top: 60px;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
 
             .portfolio_item {
-                width: 270px;
+                width: 250px;
                 padding-bottom: 20px;
                 border-radius: 3px;
                 margin-top: 20px;
-                margin-bottom: 20px;
                 background-color: $white;
+                border: 1px solid transparent;
+                backface-visibility: hidden;
                 transition: all 0.2s ease-in-out;
 
+                .more {
+                    display: block;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+
                 &:hover{
-                    transform: scale(1.3, 1.3);
-                    z-index: 1;
+                    transform: scale(1.2);
                     border: 1px solid $lightgrey;
                     cursor: pointer;
                 }
+
+
 
                 img {
                     display: block;
@@ -293,5 +304,15 @@ p {
     }
 }
 
+.calculation {
 
+    .container {
 
+        .calculator_wrapper {
+
+            h2 {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

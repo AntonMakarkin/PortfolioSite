@@ -72,7 +72,7 @@ function css() {
   return src(path.src.css).pipe(scss({
     outputStyle: "expanded"
   })).pipe(groupMedia()).pipe(autoprefixer({
-    overrideBrowserlist: ["last 5 versions"],
+    overrideBrowserlist: ["last 10 versions"],
     cascade: true
   })).pipe(webpcss()).pipe(dest(path.build.css)).pipe(cleanCSS()).pipe(rename({
     extname: ".min.css"
