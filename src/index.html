@@ -217,13 +217,29 @@
             <div class="container">
                 <div class="calculator_wrapper">
                     <h2>Рассчитать стоимость проекта</h2>
-                    <p>Полученная стоимость является примерной. 
+                    <p>Полученная стоимость является предварительной. 
                     Окончательная цена будет установлена после получения макета и личной оценки.</p>
                     <div class="calculator">
-                        <input type="checkbox" id="landingButton" name="landingButton">
-                        <label for="landingButton">Одностраничный сайт</label>
-                        <input type="checkbox" id="siteButton" name="siteButton">
-                        <label for="siteButton">Многостраничный сайт</label>
+                        <div class="project_type">
+                            <span class="project_type_header">Выберите тип проекта</span>
+                            <input type="checkbox" class="custom-checkbox" id="landingButton" name="landingButton">
+                            <label for="landingButton">Одностраничный сайт</label>
+                            <input type="checkbox" class="custom-checkbox" id="siteButton" name="siteButton">
+                            <label for="siteButton">Многостраничный сайт</label>
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">Кол-во блоков на странице
+                                <p>Максимальное кол-во: 30</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_blocks_input">
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Из них сложных/интерактивных</span>
+                                <p>Блоки со сложной геометрией, калькуляторы итп</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_blocks_input">
+                        </div>
                     </div>
                 </div>
             </div>
