@@ -61,6 +61,10 @@ header {
     position: fixed;
 }
 
+section {
+    width: 100%;
+}
+
 header .container {
     padding: 0;
 
@@ -313,59 +317,70 @@ header .container {
 
     .container {
 
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 60px;
+        }
+
+        input, label {
+            cursor: pointer;
+        }
+
+        input {
+            outline: none;
+        }
+
+        //chrome
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+           -webkit-appearance: none;
+           margin: 0;
+        }
+
+        //firefox
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input[type="number"]:hover,
+        input[type="number"]:focus {
+            -moz-appearance: number-input;
+        }
+
+        //others
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+
         .calculator_wrapper {
 
-            h2 {
-                margin-bottom: 15px;
-            }
-
-            p {
-                margin-bottom: 30px;
-            }
-
-            input, label {
-                cursor: pointer;
-            }
-
-            input {
-                outline: none;
-            }
-
-            //chrome
-            input[type="number"]::-webkit-outer-spin-button,
-            input[type="number"]::-webkit-inner-spin-button {
-               -webkit-appearance: none;
-               margin: 0;
-            }
-
-            //firefox
-            input[type="number"] {
-                -moz-appearance: textfield;
-            }
-            input[type="number"]:hover,
-            input[type="number"]:focus {
-                -moz-appearance: number-input;
-            }
-
-            //others
-            input[type=number]::-webkit-inner-spin-button,
-            input[type=number]::-webkit-outer-spin-button {
-               -webkit-appearance: none;
-               margin: 0;
-            }
+            padding-top: 50px;
+            padding-bottom: 50px;
+            padding-left: 20%;
+            padding-right: 20%;
+            box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.1);
 
             .calculator {
-                padding: 50px;
-                box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.1);
 
                 .project_type {
                     margin-bottom: 30px;
 
                     .project_type_header {
                         display: block;
-                        font-weight: 700;
+                        font-weight: 500;
                         font-size: 20px;
+                        margin-bottom: 5px;
+                    }
+
+                    p {
+                        font-weight: 300;
                         margin-bottom: 10px;
+                        line-height: 1.3;
                     }
     
                     label[for="landingButton"] {
@@ -407,29 +422,63 @@ header .container {
                 }
 
                 .counter_blocks {
-                    width: 50%;
+                    width: 100%;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     margin-bottom: 30px;
 
                     .counter_block_label {
+                        width: 60%;
                         font-size: 20px;
-                        font-weight: 700;
+                        font-weight: 500;
+
+                        span {
+                            display: block;
+                            font-weight: 500;
+                            margin-bottom: 5px;
+                        }
 
                         p {
                             margin-bottom: 0;
-                            font-weight: 400;
+                            font-weight: 300;
+                            line-height: 1.3;
                         }
                     }
 
                     .counter_blocks_input {
-                        width: 120px;
+                        width: 15%;
                         height: 40px;
                         padding: 5px;
                         font-size: 30px;
                         border: none;
                         border-bottom: 1px solid $black;
+                    }
+                }
+            }
+
+            .buttons_switch {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .prev, .next {
+                    width: 115px;
+                    height: 45px;
+                    border-radius: 5px;
+
+                    .inner_button {
+                        width: 60px;
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 0 auto;
+                    }
+
+                    p {
+                        margin: 0;
+                        font-size: 14px;
+                        color: $white;
                     }
                 }
             }
