@@ -249,6 +249,80 @@ p {
   color: #565656;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+}
+
+footer {
+  width: 100%;
+  background-color: #000000;
+}
+
+section {
+  width: 100%;
+}
+
+input,
+label {
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.custom-checkbox + label::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #565656;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.custom-checkbox:checked + label::before {
+  border-color: #000000;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
 .container {
   margin: auto;
   width: 80%;
@@ -261,13 +335,24 @@ p {
   align-items: center;
 }
 
-header {
-  width: 100%;
-  position: fixed;
+.showActive {
+  display: block;
 }
 
-section {
-  width: 100%;
+.showHide {
+  display: none;
+}
+
+.header_active {
+  z-index: 100;
+  background: #FFFFFF;
+  box-shadow: 0 0 2px 0px;
+}
+
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
 
 header .container {
@@ -304,13 +389,14 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
 }
 
 .main .container {
-  padding-top: 100px;
-  padding-bottom: 200px;
+  padding-top: 170px;
+  padding-bottom: 170px;
 }
 
 .main .container .description {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .main .container .description .text_description {
@@ -341,6 +427,12 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   height: 65px;
   border-radius: 5px;
   color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+
+.main .container .description .text_description .button_contact_to_me:hover {
+  background-color: #565656;
 }
 
 .main .container .description .portret {
@@ -498,42 +590,16 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   margin-bottom: 60px;
 }
 
-.calculation .container input,
-.calculation .container label {
-  cursor: pointer;
-}
-
-.calculation .container input {
-  outline: none;
-}
-
-.calculation .container input[type="number"]::-webkit-outer-spin-button,
-.calculation .container input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.calculation .container input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-.calculation .container input[type="number"]:hover,
-.calculation .container input[type="number"]:focus {
-  -moz-appearance: number-input;
-}
-
-.calculation .container input[type=number]::-webkit-inner-spin-button,
-.calculation .container input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 .calculation .container .calculator_wrapper {
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 20%;
   padding-right: 20%;
   box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.1);
+}
+
+.calculation .container .calculator_wrapper .calculator {
+  margin-bottom: 60px;
 }
 
 .calculation .container .calculator_wrapper .calculator .project_type {
@@ -563,36 +629,6 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   opacity: 0;
 }
 
-.calculation .container .calculator_wrapper .calculator .project_type .custom-checkbox + label {
-  display: inline-flex;
-  align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.calculation .container .calculator_wrapper .calculator .project_type .custom-checkbox + label::before {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  flex-grow: 0;
-  border: 1px solid #565656;
-  border-radius: 0.15em;
-  margin-right: 0.5em;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 50% 50%;
-}
-
-.calculation .container .calculator_wrapper .calculator .project_type .custom-checkbox:checked + label::before {
-  border-color: #000000;
-  background-color: #000000;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-}
-
 .calculation .container .calculator_wrapper .calculator .counter_blocks {
   width: 100%;
   display: flex;
@@ -619,7 +655,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   line-height: 1.3;
 }
 
-.calculation .container .calculator_wrapper .calculator .counter_blocks .counter_blocks_input {
+.calculation .container .calculator_wrapper .calculator .counter_blocks .counter_input {
   width: 15%;
   height: 40px;
   padding: 5px;
@@ -640,6 +676,8 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   width: 115px;
   height: 45px;
   border-radius: 5px;
+  background-color: #000000;
+  cursor: pointer;
 }
 
 .calculation .container .calculator_wrapper .buttons_switch .prev .inner_button,
@@ -655,6 +693,58 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   margin: 0;
   font-size: 14px;
   color: #FFFFFF;
+}
+
+.calculation .container .calculator_wrapper .buttons_switch .calculator_slider_counter {
+  font-size: 12px;
+  color: #565656;
+  opacity: 0.3;
+  font-weight: 500;
+}
+
+.contacts .container .contacts_wrapper {
+  padding-top: 85px;
+}
+
+.contacts .container .contacts_wrapper .form {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 40px;
+  box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.1);
+}
+
+.contacts .container .contacts_wrapper .form span {
+  display: block;
+  font-weight: 500;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.contacts .container .contacts_wrapper .form .feedback_input {
+  height: 60px;
+  background: #F8F8F8;
+  box-shadow: inset 0px 3px 10px rgba(199, 199, 199, 0.25);
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 17px;
+  padding-left: 20px;
+}
+
+.contacts .container .contacts_wrapper .form .submit {
+  width: 100%;
+  height: 66px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer .container {
+  padding-top: 20px;
 }
 
 .webp .main .container .description .portret { background-image: url(../img/portret.webp); }

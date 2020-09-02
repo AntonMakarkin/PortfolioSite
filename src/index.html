@@ -219,7 +219,7 @@
                 <p>Полученная стоимость является предварительной. 
                 Окончательная цена будет установлена после получения макета и личной оценки.</p>
                 <div class="calculator_wrapper">
-                    <div class="calculator">
+                    <div class="calculator showHide">
                         <div class="project_type">
                             <span class="project_type_header">Шаг 1. Выберите тип проекта</span>
                             <p>Я разрабатываю одностраничные сайты (landing page) и многостраничные
@@ -235,14 +235,99 @@
                                 <span>Кол-во блоков на странице</span>
                                 <p>Максимальное кол-во: 30</p>
                             </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_blocks_input">
+                            <input type="number" min="1" max="30" step="1" class="counter_input counter_blocks_input">
                         </div>
                         <div class="counter_blocks">
                             <div class="counter_block_label">
                                 <span>Из них сложных/интерактивных</span>
                                 <p>Блоки со сложной геометрией, калькуляторы итп</p>
                             </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_blocks_input">
+                            <input type="number" min="1" max="30" step="1" class="counter_input counter_hardblocks_input">
+                        </div>
+                    </div>
+                    <div class="calculator showHide">
+                        <div class="project_type">
+                            <span class="project_type_header">Шаг 2. Укажите кол-во интерактивных элементов</span>
+                            <p>Слайдеры, модальные окна, формы обратной связи
+                            </p>
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Кол-во cлайдеров</span>
+                                <p>Как правило на странице от 1 до 3 слайдеров</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Кол-во модальных окон</span>
+                                <p>Много всплывающих окон раздражают пользователя</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Формы обратной связи</span>
+                                <p>Как правило одна - внизу страницы</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                        </div>
+                    </div>
+                    <div class="calculator showHide">
+                        <div class="project_type">
+                            <span class="project_type_header">Шаг 2. Укажите кол-во интерактивных элементов</span>
+                            <p>Слайдеры, модальные окна, формы обратной связи
+                            </p>
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Кол-во cлайдеров</span>
+                                <p>Как правило на странице от 1 до 3 слайдеров</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Кол-во модальных окон</span>
+                                <p>Много всплывающих окон раздражают пользователя</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Формы обратной связи</span>
+                                <p>Как правило одна - внизу страницы</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                        </div>
+                    </div>
+                    <div class="calculator">
+                        <div class="project_type">
+                            <span class="project_type_header">Шаг 3. Дополнительные опции</span>
+                            <p>Адаптация под мобильные устройства, размещение на хостинге
+                            </p>
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Адаптивность</span>
+                                <p>Адаптирование под ноутубки и мобильные устройства</p>
+                            </div>
+                            <input type="checkbox" class="custom-checkbox" id="adaptiveButton" name="adaptiveButton">
+                            <label for="adaptiveButton"></label>
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Калькуляторы</span>
+                                <p>Кол-во уникальных калькуляторов</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                        </div>
+                        <div class="counter_blocks">
+                            <div class="counter_block_label">
+                                <span>Формы обратной связи</span>
+                                <p>Как правило одна - внизу страницы</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" class="counter_input">
                         </div>
                     </div>
                     <div class="buttons_switch">
@@ -267,7 +352,27 @@
                 </div>
             </div>
         </section>
+        <section class="contacts">
+            <div class="container">
+                <h2>Свяжитесь со мной</h2>
+                <div class="contacts_wrapper">
+                    <form class="form">
+                        <span>Можете просто оставить заявку, я отвечу вам сегодня</span>
+                        <input type="text" name="name" class="feedback_input" placeholder="Ваше имя" id="name">
+                        <input type="email" name="email" class="feedback_input" placeholder="Ваше почта" id="email">
+                        <button class="submit">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
+    <footer>
+        <div class="container">
+            <div class="footer_content">
+
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="js/script.min.js"></script>
 </html>
