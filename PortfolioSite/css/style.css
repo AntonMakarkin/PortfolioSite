@@ -428,7 +428,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   border-radius: 5px;
   color: #FFFFFF;
   cursor: pointer;
-  transition: background-color 0.2s linear;
+  transition: background-color 0.1s linear;
 }
 
 .main .container .description .text_description .button_contact_to_me:hover {
@@ -678,6 +678,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   border-radius: 5px;
   background-color: #000000;
   cursor: pointer;
+  transition: 0.1s background-color linear;
 }
 
 .calculation .container .calculator_wrapper .buttons_switch .prev .inner_button,
@@ -693,6 +694,14 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   margin: 0;
   font-size: 14px;
   color: #FFFFFF;
+}
+
+.calculation .container .calculator_wrapper .buttons_switch .prev:hover {
+  background-color: #565656;
+}
+
+.calculation .container .calculator_wrapper .buttons_switch .next:hover {
+  background-color: #565656;
 }
 
 .calculation .container .calculator_wrapper .buttons_switch .calculator_slider_counter {
@@ -744,6 +753,11 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   color: #FFFFFF;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.1s background-color linear;
+}
+
+.contacts .container .contacts_wrapper .form .submit:hover {
+  background-color: #565656;
 }
 
 .contacts .container .contacts_wrapper .contact_information {
@@ -808,7 +822,78 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
 }
 
 footer .container {
-  padding-top: 20px;
+  padding-top: 70px;
+}
+
+footer .container .footer_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .container .footer_content span {
+  display: block;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+footer .container .footer_content a {
+  display: block;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  transition: color 0.1s linear;
+}
+
+footer .container .footer_content a:hover {
+  color: #565656;
+}
+
+footer .container .footer_content .logo_and_social {
+  width: 240px;
+}
+
+footer .container .footer_content .logo_and_social .logo {
+  font-size: 24px;
+  color: #FFFFFF;
+  font-weight: 100;
+  font-style: "Raleway", sans-serif;
+  display: block;
+}
+
+footer .container .footer_content .logo_and_social .social_icons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+footer .container .footer_content .logo_and_social .social_icons .twitter,
+footer .container .footer_content .logo_and_social .social_icons .facebook,
+footer .container .footer_content .logo_and_social .social_icons .instagram,
+footer .container .footer_content .logo_and_social .social_icons .telegram {
+  margin-left: 20px;
+}
+
+footer .container .footer_content .footer_navigation {
+  width: 250px;
+}
+
+footer .container .footer_content .footer_navigation .footer_nav .footer_nav_list {
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+}
+
+footer .container .footer_content .footer_contacts p {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+footer .container .footer_content .footer_contacts a {
+  text-transform: none;
 }
 
 .webp .main .container .description .portret { background-image: url(../img/portret.webp); }

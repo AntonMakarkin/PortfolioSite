@@ -8,7 +8,8 @@ let path = {
         css: projectFolder + "/css/",
         js: projectFolder + "/js/",
         img: projectFolder + "/img/",
-        fonts: projectFolder + "/fonts/"
+        fonts: projectFolder + "/fonts/",
+        svg: projectFolder + "/svg/"
     },
     src:{
         html: [sourceFolder + "/*.html", "!" + sourceFolder + "/_*.html"],
@@ -16,14 +17,16 @@ let path = {
         js: sourceFolder + "/js/script.js",
         img: sourceFolder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
         fonts: sourceFolder + "/fonts/*.ttf",
-        portretImg: sourceFolder + "/portretImg/**/*.{jpg,png,svg,gif,ico,webp}"
+        portretImg: sourceFolder + "/portretImg/**/*.{jpg,png,svg,gif,ico,webp}",
+        svg: sourceFolder + "/svg/**/*.svg"
     },
     watch:{
         html: sourceFolder + "/**/*.html",
         css: sourceFolder + "/scss/**/*.scss",
         js: sourceFolder + "/js/**/*.js",
         img: sourceFolder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
-        portretImg: sourceFolder + "/portretImg/**/*.{jpg,png,svg,gif,ico,webp}"
+        portretImg: sourceFolder + "/portretImg/**/*.{jpg,png,svg,gif,ico,webp}",
+        svg: sourceFolder + "/svg/**/*.svg"
     },
     clean: "./" + projectFolder + "/"
 };
@@ -150,6 +153,12 @@ function images() {
        .pipe(browsersync.stream());
 }
 
+function exportSVG() {
+    return src(path.src.svg)
+       .pipe(dest(path.build.svg))
+       .pipe(browsersync.stream());
+}
+
 function fonts() {
     src(path.src.fonts)
        .pipe(ttf2woff())
@@ -212,15 +221,17 @@ function watchFiles() {
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.img], images);
     gulp.watch([path.watch.portretImg], portretImage);
+    gulp.watch([path.watch.svg], exportSVG);
 }
 
 function clean() {
     return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, portretImage), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, portretImage, exportSVG), fontsStyle);
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
+exports.exportSVG = exportSVG;
 exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
 exports.images = images;
