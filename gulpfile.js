@@ -49,7 +49,8 @@ let { src, dest } = require('gulp'),
     svgSprite = require("gulp-svg-sprite"),
     ttf2woff = require("gulp-ttf2woff"),
     ttf2woff2 = require("gulp-ttf2woff2"),
-    fonter = require('gulp-fonter');
+    fonter = require('gulp-fonter'),
+    webpack = require('webpack-stream');
 
 function browserSync(params) {
     browsersync.init({
@@ -95,7 +96,7 @@ function css() {
        .pipe(browsersync.stream());
 }
 
-function js() {
+/*function js() {
     return src(path.src.js)
        .pipe(fileinclude())
        .pipe(dest(path.build.js))
@@ -109,7 +110,7 @@ function js() {
        )
        .pipe(dest(path.build.js))
        .pipe(browsersync.stream());
-}
+}*/
 
 function portretImage() {
     return src(path.src.portretImg)
@@ -211,6 +212,66 @@ function fontsStyle(params) {
     }
 }
 
+gulp.task("build-js", () => {
+    return gulp.src("src/js/script.js")
+               .pipe(webpack({
+                   mode: 'development',
+                   output: {
+                       filename: 'script.js'
+                   },
+                   watch: false,
+                   devtool: "source-map",
+                   module: {
+                       rules: [
+                           {
+                               test: /\.m?js$/,
+                               exclude: /(node_modules|bower_components)/,
+                               use: {
+                                   loader: 'babel-loader',
+                                   options: {
+                                       presets: [['@babel/preset-env', {
+                                           debug: true,
+                                           corejs: 3,
+                                           useBuiltIns: "usage"
+                                       }]]
+                                   }
+                               }
+                           }
+                       ]
+                   }
+               }))
+               .pipe(gulp.dest(path.build.js))
+               .on("end", browsersync.reload);
+});
+
+gulp.task("build-prod-js", () => {
+    return gulp.src("./src/js/main.js")
+               .pipe(webpack({
+                   mode: 'production',
+                   output: {
+                       filename: 'script.js'
+                   },
+                   module: {
+                       rules: [
+                           {
+                               test: /\.m?js$/,
+                               exclude: /(node_modules|bower_components)/,
+                               use: {
+                                   loader: 'babel-loader',
+                                   options: {
+                                       presets: [['@babel/present-env', {
+                                           corejs: 3,
+                                           useBuiltIns: "usage"
+                                       }]]
+                                   }
+                               }   
+                           }
+                       ]
+                   }
+               }))
+               .pipe(gulp.dest(path.build.js));
+});
+
 function cb() {
 
 }
@@ -218,7 +279,7 @@ function cb() {
 function watchFiles() {
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
-    gulp.watch([path.watch.js], js);
+    gulp.watch([path.watch.js], gulp.parallel("build-js"));
     gulp.watch([path.watch.img], images);
     gulp.watch([path.watch.portretImg], portretImage);
     gulp.watch([path.watch.svg], exportSVG);
@@ -228,7 +289,7 @@ function clean() {
     return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, portretImage, exportSVG), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(css, html, images, fonts, portretImage, exportSVG, "build-js"), fontsStyle);
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.exportSVG = exportSVG;
@@ -236,7 +297,7 @@ exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
 exports.images = images;
 exports.portretImage = portretImage;
-exports.js = js;
+//exports.js = js;
 exports.css = css;
 exports.html = html;
 exports.build = build;

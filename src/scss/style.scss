@@ -124,6 +124,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 80%;
     padding-top: 120px;
     padding-bottom: 80px;
+    max-width: 1220px;
 }
 
 .description {
@@ -160,11 +161,14 @@ header .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
         padding: 20px 0;
     
         .logo {
             @include fonts(24px, 100, $black, ('Raleway', sans-serif));
+        }
+
+        .main_nav {
+            margin-left: auto;
         }
     
         .main_nav > .main_nav_list {
@@ -177,7 +181,8 @@ header .container {
                 font-weight: 700;
                 color: $black;
                 text-transform: uppercase;
-                margin-left: 25px;
+                //margin-left: 25px;
+                padding-left: 25px;
             }
         }
     }
@@ -599,6 +604,7 @@ header .container {
                 display: flex;
                 flex-wrap: wrap;
                 align-content: flex-start;
+                margin-bottom: 70px;
 
                 h3 {
                     font-size: 24px;
@@ -684,7 +690,7 @@ footer .container {
         }
 
         .logo_and_social {
-            width: 240px;
+            width: 200px;
 
             .logo {
                 @include fonts(24px, 100, $white, ('Raleway', sans-serif));
@@ -702,8 +708,18 @@ footer .container {
             }
         }
 
+        .about_me {
+            width: 200px;
+
+            p {
+                color: $white;
+                font-size: 13px;
+                line-height: 22px;
+            }
+        }
+
         .footer_navigation {
-            width: 250px;
+            width: 200px;
 
             .footer_nav {
 
@@ -724,9 +740,431 @@ footer .container {
 
             a {
                 text-transform: none;
+                font-size: 13px;
             }
         }
 
         
+    }
+}
+
+//Adaptive
+
+@media (max-width: 1440px) {
+    .ed_full_description {
+        width: 50%;
+    }
+}
+
+@media(max-width: 1250px) {
+    .portfolio {
+
+        .container {
+
+            .portfolio_items {
+
+                .portfolio_item {
+                    width: 400px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    .work_with_me {
+
+        .container {
+
+            .description_cards {
+
+                .description_card {
+                    width: 200px;
+                }
+            }
+        }
+    }
+    .portfolio {
+
+        .container {
+
+            .portfolio_items {
+
+                .portfolio_item {
+                    width: 350px;
+                }
+            }
+        }
+    }
+
+    .contacts {
+
+        .container {
+
+            .contacts_wrapper {
+
+                .contact_information {
+                    width: 350px;
+
+                    .social {
+
+                        .social_links {
+                            display: flex;
+                            flex-direction: column;
+                            margin-bottom: 30px;
+                            
+                            a {
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1024px) {
+    .contacts {
+
+        .container {
+
+            .contacts_wrapper {
+
+                .form {
+                    width: 300px;
+                }
+            }
+        }
+    }
+
+    footer {
+        
+        .container {
+
+            .footer_content {
+
+                .logo_and_social, .about_me, .footer_navigation, .footer_contacts {
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 992px) {
+
+    header {
+        height: 60px;
+
+        .container {
+
+            .header {
+                
+                .logo, .main_nav {
+                    display: none;
+                }
+                    
+                .menu_button {
+                    display: block;
+                    position: absolute;
+                    right: 35px;
+                    top: 30px;
+                    width: 30px;
+                    height: 2px;
+                    background-color: $black;
+                    border: none;
+                    z-index: 4;
+                }
+                
+                .menu_button:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 30px;
+                    height: 2px;
+                    margin-top: -7px;
+                    transition: transform 0.2s;
+                    background-color: $black;
+                    z-index: 4;
+                }
+                
+                .menu_button:after {
+                    content: '';
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    width: 30px;
+                    height: 2px;
+                    margin-top: 7px;
+                    transition: transform 0.2s;
+                    background-color: $black;
+                    z-index: 4;
+                }
+                
+                .menu_button_active {
+                    height: 0;
+                    z-index: 4;
+                }
+                
+                .menu_button_active:before {
+                    transform: rotate(45deg);
+                    margin-top: 0;
+                    z-index: 4;
+                }
+                
+                .menu_button_active:after {
+                    transform: rotate(-45deg);
+                    margin-top: 0;
+                    z-index: 4;
+                }
+            }
+        }
+    }
+
+    .main {
+    
+        .container {
+            padding-top: 120px;
+    
+            .description {
+                padding-top: 40px;
+    
+                .text_description {
+                    padding-top: 0;
+                }
+                .portret {
+                    width: 330px;
+                    height: 330px;
+                    background-position: -55px -50px;
+                }
+            }
+        }
+    }
+    
+    .portfolio {
+    
+        .container {
+    
+            .portfolio_items {
+    
+                .portfolio_item {
+                    width: 280px;
+                }
+            }
+        }
+    }
+    
+    .calculation {
+    
+        .container {
+    
+            .calculator_wrapper {
+                padding-left: 10%;
+                padding-right: 10%;
+            }
+        }
+    }
+    
+    .skills {
+    
+        .container {
+            
+            .skills_description {
+    
+                .full_description {
+                    width: 50%;
+                }
+            }
+        }
+    }
+    
+    footer {
+    
+        .container {
+    
+            .footer_content {
+                flex-wrap: wrap;
+    
+                .logo_and_social, .about_me, .footer_navigation, .footer_contacts {
+                    width: 40%;
+                }
+    
+                .logo_and_social, .about_me {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+@media(max-width: 768px) {
+    
+    .main {
+
+        .container {
+
+            .description {
+                flex-direction: column;
+                align-items: center;
+                
+                .portret {
+                    order: 1;
+                    margin-bottom: 40px;
+                }
+
+                .text_description {
+                    text-align: center;
+                    width: 100%;
+                    order: 2;
+                }
+            }
+        }
+    }
+
+    .work_with_me {
+
+        .container {
+
+            .description_cards {
+                flex-wrap: wrap;
+
+                .description_card {
+                    width: 45%;
+                }
+
+                .hosting_card {
+                    width: 100%;
+                    padding-left: 27.5%;
+                    padding-right: 27.5%;
+                    padding-top: 30px;
+                }
+            }
+        }
+    }
+
+    .contacts {
+        margin-bottom: 30px;
+
+        .contacts_wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+@media(max-width: 600px) {
+
+    .work_with_me {
+
+        .container {
+
+            h2 {
+                text-align: center;
+            }
+
+            .description_cards {
+
+                .description_card {
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+
+                .hosting_card {
+                    padding: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .skills {
+
+        .container {
+
+            .skills_description {
+                flex-direction: column;
+
+                .short_description {
+                    margin-bottom: 30px;
+                }
+
+                .short_description, .full_description{
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .education {
+
+        .container {
+            padding-bottom: 30px;
+
+            .education_description {
+                flex-direction: column;
+                text-align: center;
+
+                .ed_short_description {
+                    margin-bottom: 30px;
+                }
+
+                .ed_short_description, .ed_full_description {
+                    width: 100%;
+                }
+
+                .ed_full_description {
+
+                    .education_item {
+
+                        .item_header {
+                            flex-direction: column;
+
+                            h3 {
+                                margin-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 426px) {
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .main {
+
+        .container {
+
+            .description {
+                padding-top: 0;
+
+                .text_description {
+
+                    h1 {
+                        font-size: 40px;
+                    }
+                }
+
+                .portret {
+                    width: 300px;
+                    height: 300px;
+                    background-position: -70px -50px;
+                }
+
+            }
+        }
     }
 }

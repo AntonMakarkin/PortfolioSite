@@ -297,7 +297,6 @@ input[type=number]::-webkit-outer-spin-button {
   display: inline-flex;
   align-items: center;
   -webkit-user-select: none;
-     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
@@ -328,6 +327,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 80%;
   padding-top: 120px;
   padding-bottom: 80px;
+  max-width: 1220px;
 }
 
 .description {
@@ -363,7 +363,6 @@ header .container .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   padding: 20px 0;
 }
 
@@ -372,6 +371,10 @@ header .container .header .logo {
   color: #000000;
   font-weight: 100;
   font-style: "Raleway", sans-serif;
+}
+
+header .container .header .main_nav {
+  margin-left: auto;
 }
 
 header .container .header .main_nav > .main_nav_list {
@@ -385,7 +388,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   font-weight: 700;
   color: #000000;
   text-transform: uppercase;
-  margin-left: 25px;
+  padding-left: 25px;
 }
 
 .main .container {
@@ -766,6 +769,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  margin-bottom: 70px;
 }
 
 .contacts .container .contacts_wrapper .contact_information h3 {
@@ -853,7 +857,7 @@ footer .container .footer_content a:hover {
 }
 
 footer .container .footer_content .logo_and_social {
-  width: 240px;
+  width: 200px;
 }
 
 footer .container .footer_content .logo_and_social .logo {
@@ -877,8 +881,18 @@ footer .container .footer_content .logo_and_social .social_icons .telegram {
   margin-left: 20px;
 }
 
+footer .container .footer_content .about_me {
+  width: 200px;
+}
+
+footer .container .footer_content .about_me p {
+  color: #FFFFFF;
+  font-size: 13px;
+  line-height: 22px;
+}
+
 footer .container .footer_content .footer_navigation {
-  width: 250px;
+  width: 200px;
 }
 
 footer .container .footer_content .footer_navigation .footer_nav .footer_nav_list {
@@ -894,6 +908,289 @@ footer .container .footer_content .footer_contacts p {
 
 footer .container .footer_content .footer_contacts a {
   text-transform: none;
+  font-size: 13px;
+}
+
+@media (max-width: 1440px) {
+  .ed_full_description {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1250px) {
+  .portfolio .container .portfolio_items .portfolio_item {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .work_with_me .container .description_cards .description_card {
+    width: 200px;
+  }
+
+  .portfolio .container .portfolio_items .portfolio_item {
+    width: 350px;
+  }
+
+  .contacts .container .contacts_wrapper .contact_information {
+    width: 350px;
+  }
+
+  .contacts .container .contacts_wrapper .contact_information .social .social_links {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .contacts .container .contacts_wrapper .contact_information .social .social_links a {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contacts .container .contacts_wrapper .form {
+    width: 300px;
+  }
+
+  footer .container .footer_content .logo_and_social,
+  footer .container .footer_content .about_me,
+  footer .container .footer_content .footer_navigation,
+  footer .container .footer_content .footer_contacts {
+    width: 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  header {
+    height: 60px;
+  }
+
+  header .container .header .logo,
+  header .container .header .main_nav {
+    display: none;
+  }
+
+  header .container .header .menu_button {
+    display: block;
+    position: absolute;
+    right: 35px;
+    top: 30px;
+    width: 30px;
+    height: 2px;
+    background-color: #000000;
+    border: none;
+    z-index: 4;
+  }
+
+  header .container .header .menu_button:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    margin-top: -7px;
+    transition: transform 0.2s;
+    background-color: #000000;
+    z-index: 4;
+  }
+
+  header .container .header .menu_button:after {
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    margin-top: 7px;
+    transition: transform 0.2s;
+    background-color: #000000;
+    z-index: 4;
+  }
+
+  header .container .header .menu_button_active {
+    height: 0;
+    z-index: 4;
+  }
+
+  header .container .header .menu_button_active:before {
+    transform: rotate(45deg);
+    margin-top: 0;
+    z-index: 4;
+  }
+
+  header .container .header .menu_button_active:after {
+    transform: rotate(-45deg);
+    margin-top: 0;
+    z-index: 4;
+  }
+
+  .main .container {
+    padding-top: 120px;
+  }
+
+  .main .container .description {
+    padding-top: 40px;
+  }
+
+  .main .container .description .text_description {
+    padding-top: 0;
+  }
+
+  .main .container .description .portret {
+    width: 330px;
+    height: 330px;
+    background-position: -55px -50px;
+  }
+
+  .portfolio .container .portfolio_items .portfolio_item {
+    width: 280px;
+  }
+
+  .calculation .container .calculator_wrapper {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .skills .container .skills_description .full_description {
+    width: 50%;
+  }
+
+  footer .container .footer_content {
+    flex-wrap: wrap;
+  }
+
+  footer .container .footer_content .logo_and_social,
+  footer .container .footer_content .about_me,
+  footer .container .footer_content .footer_navigation,
+  footer .container .footer_content .footer_contacts {
+    width: 40%;
+  }
+
+  footer .container .footer_content .logo_and_social,
+  footer .container .footer_content .about_me {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main .container .description {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main .container .description .portret {
+    order: 1;
+    margin-bottom: 40px;
+  }
+
+  .main .container .description .text_description {
+    text-align: center;
+    width: 100%;
+    order: 2;
+  }
+
+  .work_with_me .container .description_cards {
+    flex-wrap: wrap;
+  }
+
+  .work_with_me .container .description_cards .description_card {
+    width: 45%;
+  }
+
+  .work_with_me .container .description_cards .hosting_card {
+    width: 100%;
+    padding-left: 27.5%;
+    padding-right: 27.5%;
+    padding-top: 30px;
+  }
+
+  .contacts {
+    margin-bottom: 30px;
+  }
+
+  .contacts .contacts_wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .work_with_me .container h2 {
+    text-align: center;
+  }
+
+  .work_with_me .container .description_cards .description_card {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .work_with_me .container .description_cards .hosting_card {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .skills .container .skills_description {
+    flex-direction: column;
+  }
+
+  .skills .container .skills_description .short_description {
+    margin-bottom: 30px;
+  }
+
+  .skills .container .skills_description .short_description,
+  .skills .container .skills_description .full_description {
+    width: 100%;
+    text-align: center;
+  }
+
+  .education .container {
+    padding-bottom: 30px;
+  }
+
+  .education .container .education_description {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .education .container .education_description .ed_short_description {
+    margin-bottom: 30px;
+  }
+
+  .education .container .education_description .ed_short_description,
+  .education .container .education_description .ed_full_description {
+    width: 100%;
+  }
+
+  .education .container .education_description .ed_full_description .education_item .item_header {
+    flex-direction: column;
+  }
+
+  .education .container .education_description .ed_full_description .education_item .item_header h3 {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 426px) {
+  h2 {
+    font-size: 25px;
+  }
+
+  .main .container .description {
+    padding-top: 0;
+  }
+
+  .main .container .description .text_description h1 {
+    font-size: 40px;
+  }
+
+  .main .container .description .portret {
+    width: 300px;
+    height: 300px;
+    background-position: -70px -50px;
+  }
 }
 
 .webp .main .container .description .portret { background-image: url(../img/portret.webp); }
