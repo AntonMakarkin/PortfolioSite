@@ -1054,11 +1054,29 @@ footer .container {
         .contacts_wrapper {
             flex-direction: column;
             align-items: center;
+            align-content: center;
         }
     }
 }
 
 @media(max-width: 600px) {
+
+    .main {
+
+        .container {
+
+            .description {
+
+                .text_description {
+
+                    .button_contact_to_me {
+                        height: 55px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
 
     .work_with_me {
 
@@ -1092,7 +1110,7 @@ footer .container {
                 flex-direction: column;
 
                 .short_description {
-                    margin-bottom: 30px;
+                    margin-bottom: 50px;
                 }
 
                 .short_description, .full_description{
@@ -1113,7 +1131,7 @@ footer .container {
                 text-align: center;
 
                 .ed_short_description {
-                    margin-bottom: 30px;
+                    margin-bottom: 50px;
                 }
 
                 .ed_short_description, .ed_full_description {
@@ -1132,6 +1150,142 @@ footer .container {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    .portfolio {
+
+        .container {
+
+            h2 {
+                text-align: center;
+            }
+
+            .portfolio_items {
+
+                .portfolio_item {
+                    width: 100%;
+
+                    &:hover {
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+    }
+
+    .calculation {
+
+        .container {
+
+            h2 {
+                text-align: center;
+            }
+
+            > p {
+                text-align: center;
+            }
+
+            .calculator_wrapper {
+                padding-top: 30px;
+                padding-bottom: 30px;
+                box-sizing: border-box;
+
+                .buttons_switch {
+                    flex-wrap: wrap;
+
+                    .prev {
+                        order: 1;
+                        margin-bottom: 20px;
+                    }
+
+                    .calculator_slider_counter {
+                        width: 100%;
+                        text-align: center;
+                        order: 3;
+                    }
+
+                    .next {
+                        order: 2;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .contacts {
+
+        .container {
+
+            h2 {
+                text-align: center;
+            }
+
+            .contacts_wrapper {
+                padding-top: 55px;
+
+                .form {
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                    padding-left: 5%;
+                    padding-right: 5%;
+
+                    span {
+                        font-size: 15px;
+                    }
+
+                    .submit {
+                        height: 50px;
+                        font-size: 12px;
+                    }
+                }
+
+                .contact_information {
+                    text-align: center;
+
+                    .phone, .email {
+                        width: 100%;
+                    }
+                    .social {
+
+                        .social_icons {
+                            width: 100%;
+                            margin: 0 auto;
+                            justify-content: space-around;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+
+        .container {
+
+            .footer_content {
+                
+                .logo_and_social, .about_me, .footer_navigation,.footer_contacts {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .logo_and_social {
+
+                    .social_icons {
+                        width: 80%;
+                        margin: 0 auto;
+                        justify-content: space-around;
+                    }
+                }
+
+                .footer_navigation {
+                    margin-bottom: 30px;
                 }
             }
         }
@@ -1164,6 +1318,138 @@ footer .container {
                     background-position: -70px -50px;
                 }
 
+            }
+        }
+    }
+
+    .work_with_me {
+
+        .container {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .skills {
+        
+        .container {
+            padding-bottom: 0;       
+        }
+    }
+
+    .education {
+
+        .container {
+            padding-bottom: 0;
+        }
+    }
+
+    .portfolio {
+
+        .container {
+            padding-bottom: 0;
+        }
+    }
+
+    .calculation {
+
+        .container {
+            padding-bottom: 0;
+        }
+    }
+
+    .contacts {
+        margin-bottom: 0;
+
+        .container {
+
+            .contacts_wrapper {
+               
+                .form {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:376px) {
+
+    .main {
+
+        .container {
+
+            .description {
+
+                .text_description {
+
+                    .button_contact_to_me {
+                        width: 100%;
+                    }
+                }
+
+                .portret {
+                    width: 290px;
+                    height: 290px;
+                    background-position: -75px -40px;
+                }
+            }
+        }
+    }
+
+    .contacts {
+
+        .container {
+
+            .contacts_wrapper {
+
+                .contact_information {
+
+                    .social {
+
+                        .social_icons {
+                            width: 90%;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .calculation {
+
+        .container {
+
+            .calculator_wrapper {
+
+                .buttons_switch {
+                    flex-direction: column;
+                    align-items: center;
+                    align-content: center;
+                }
+            }
+        }
+    } 
+}
+
+@media(max-width: 350px) {
+
+    .contacts {
+
+        .container {
+
+            .contacts_wrapper {
+
+                .form {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+
+                .contact_information {
+                    width: 100%;
+                }
             }
         }
     }
