@@ -43,5 +43,9 @@
     "webpack-cli": "^3.3.12",
     "webpack-stream": "^6.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "es6-promise": "^4.2.8",
+    "nodelist-foreach-polyfill": "^1.2.0"
+  }
 }
