@@ -1,4 +1,4 @@
-function floatHeader(headerSelector, activeClass) {
+function floatHeader({headerSelector, activeClass}) {
     const header = document.querySelector(headerSelector),
           html = document.documentElement;
 

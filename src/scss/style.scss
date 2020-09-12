@@ -190,6 +190,30 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
 }
 
+//buttonUp
+.pageUpButton {
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: $white;
+    border: 1px solid $grey;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding-top: 4px;
+
+    img {
+        margin: 0;
+        width: 20px;
+        height: 20px;
+    }
+}
+
 //header
 
 header .container {
@@ -872,30 +896,6 @@ footer .container {
         
     }
 }
-
-.pageUpButton {
-    display: none;
-    opacity: 0;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    background-color: $white;
-    border: 1px solid $grey;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    text-decoration: none;
-    box-sizing: border-box;
-    padding-top: 4px;
-
-    img {
-        margin: 0;
-        width: 20px;
-        height: 20px;
-    }
-}
-
 
 
 //Adaptive
