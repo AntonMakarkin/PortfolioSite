@@ -48,25 +48,25 @@
                 <nav class="main_nav">
                     <ul class="main_nav_list">
                         <li class="main_nav_list_item">
-                            <a href="#">Главная</a>
+                            <a href="#up">Главная</a>
                         </li>
                         <li class="main_nav_list_item">
-                            <a href="#">Работа со мной</a>
+                            <a href="#work">Работа со мной</a>
                         </li>
                         <li class="main_nav_list_item">
-                            <a href="#">Навыки</a>
+                            <a href="#skill">Навыки</a>
                         </li>
                         <li class="main_nav_list_item">
-                            <a href="#">Образование</a>
+                            <a href="#education">Образование</a>
                         </li>
                         <li class="main_nav_list_item">
-                            <a href="#">Портфолио</a>
+                            <a href="#portfolio">Портфолио</a>
                         </li>
                         <li class="main_nav_list_item">
-                            <a href="#">Рассчитать</a>
+                            <a href="#calculation">Рассчитать</a>
                         </li>
                         <li class="main_nav_list_item">
-                            <a href="#">Контакты</a>
+                            <a href="#contacts">Контакты</a>
                         </li>
                     </ul>
                 </nav>    
@@ -84,7 +84,9 @@
                            У меня можно заказать верстку небольшого сайта или landing page,
                            а также создание веб-интерактива.
                         </p>
-                        <button class="button_contact_to_me">Рассчитать стоимость</button>
+                        <a href="#calculation">
+                            <button class="button_contact_to_me">Рассчитать стоимость</button>
+                        </a>
                     </div>
                     <div class="portret"></div>
                 </div>
@@ -250,7 +252,7 @@
                 <p>Полученная стоимость является предварительной. 
                 Окончательная цена будет установлена после получения макета и личной оценки.</p>
                 <div class="calculator_wrapper">
-                    <div class="calculator">
+                    <div class="calculator" id="step_1">
                         <div class="project_type">
                             <span class="project_type_header">Шаг 1. Выберите тип проекта</span>
                             <p>Я разрабатываю одностраничные сайты (landing page) и многостраничные
@@ -261,22 +263,29 @@
                             <input type="checkbox" class="custom-checkbox" id="siteButton" name="siteButton">
                             <label for="siteButton">Многостраничный сайт</label>
                         </div>
+                        <div class="counter_blocks counter_block_disabled">
+                            <div class="counter_block_label">
+                                <span>Кол-во страниц на сайте</span>
+                                <p>Максимальное кол-во: 20</p>
+                            </div>
+                            <input type="number" min="1" max="30" step="1" id="number_of_pages" class="counter_input counter_blocks_input" disabled=true>
+                        </div>
                         <div class="counter_blocks">
                             <div class="counter_block_label">
                                 <span>Кол-во блоков на странице</span>
                                 <p>Максимальное кол-во: 30</p>
                             </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_input counter_blocks_input">
+                            <input type="number" min="1" max="30" step="1" id="number_of_blocks" class="counter_input counter_blocks_input">
                         </div>
                         <div class="counter_blocks">
                             <div class="counter_block_label">
                                 <span>Из них сложных/интерактивных</span>
                                 <p>Блоки со сложной геометрией, калькуляторы итп</p>
                             </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_input counter_hardblocks_input">
+                            <input type="number" min="1" max="30" step="1" id="number_of_hardblocks" class="counter_input counter_hardblocks_input">
                         </div>
                     </div>
-                    <div class="calculator">
+                    <div class="calculator" id="step_2">
                         <div class="project_type">
                             <span class="project_type_header">Шаг 2. Укажите кол-во интерактивных элементов</span>
                             <p>Слайдеры, модальные окна, формы обратной связи
@@ -287,52 +296,24 @@
                                 <span>Кол-во cлайдеров</span>
                                 <p>Как правило на странице от 1 до 3 слайдеров</p>
                             </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                            <input type="number" min="1" max="30" step="1" id="number_of_sliders" class="counter_input">
                         </div>
                         <div class="counter_blocks">
                             <div class="counter_block_label">
                                 <span>Кол-во модальных окон</span>
                                 <p>Много всплывающих окон раздражают пользователя</p>
                             </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                            <input type="number" min="1" max="30" step="1" id="number_of_modals" class="counter_input">
                         </div>
                         <div class="counter_blocks">
                             <div class="counter_block_label">
                                 <span>Формы обратной связи</span>
                                 <p>Как правило одна - внизу страницы</p>
                             </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_input">
+                            <input type="number" min="1" max="30" step="1" id="number_of_forms" class="counter_input">
                         </div>
                     </div>
-                    <div class="calculator">
-                        <div class="project_type">
-                            <span class="project_type_header">Шаг 2. Укажите кол-во интерактивных элементов</span>
-                            <p>Слайдеры, модальные окна, формы обратной связи
-                            </p>
-                        </div>
-                        <div class="counter_blocks">
-                            <div class="counter_block_label">
-                                <span>Кол-во cлайдеров</span>
-                                <p>Как правило на странице от 1 до 3 слайдеров</p>
-                            </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_input">
-                        </div>
-                        <div class="counter_blocks">
-                            <div class="counter_block_label">
-                                <span>Кол-во модальных окон</span>
-                                <p>Много всплывающих окон раздражают пользователя</p>
-                            </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_input">
-                        </div>
-                        <div class="counter_blocks">
-                            <div class="counter_block_label">
-                                <span>Формы обратной связи</span>
-                                <p>Как правило одна - внизу страницы</p>
-                            </div>
-                            <input type="number" min="1" max="30" step="1" class="counter_input">
-                        </div>
-                    </div>
-                    <div class="calculator">
+                    <div class="calculator" id="step_3">
                         <div class="project_type">
                             <span class="project_type_header">Шаг 3. Дополнительные опции</span>
                             <p>Адаптация под мобильные устройства, размещение на хостинге
@@ -359,6 +340,15 @@
                                 <p>Как правило одна - внизу страницы</p>
                             </div>
                             <input type="number" min="1" max="30" step="1" class="counter_input">
+                        </div>
+                    </div>
+                    <div class="calculator" id="step_4">
+                        <div class="project_type">
+                            <span class="project_type_header">Шаг 4. Итоговая примерная сумма</span>
+                        </div>
+                        <div class="total_amount">
+                            <span class="amount">20000</span>
+                            <span class="currency">рублей</span>
                         </div>
                     </div>
                     <div class="buttons_switch">
@@ -463,25 +453,25 @@
                     <nav class="footer_nav">
                         <ul class="footer_nav_list">
                            <li class="footer_nav_list_item">
-                               <a href="#">Главная</a>
+                               <a href="#up">Главная</a>
                             </li>
                            <li class="footer_nav_list_item">
-                               <a href="#">Работа со мной</a>
+                               <a href="#work">Работа со мной</a>
                             </li>
                            <li class="footer_nav_list_item">
-                               <a href="#">Навыки</a>
+                               <a href="#skill">Навыки</a>
                             </li>
                            <li class="footer_nav_list_item">
-                               <a href="#">Образование</a>
+                               <a href="#education">Образование</a>
                             </li>
                            <li class="footer_nav_list_item">
-                               <a href="#">Портфолио</a>
+                               <a href="#portfolio">Портфолио</a>
                             </li>
                            <li class="footer_nav_list_item">
-                               <a href="#">Рассчитать</a>
+                               <a href="#calculation">Рассчитать</a>
                             </li>
                             <li class="footer_nav_list_item">
-                                <a href="#">Связаться</a>
+                                <a href="#contacts">Связаться</a>
                              </li>
                         </ul>
                     </nav>

@@ -153,6 +153,7 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 0;
 }
 
+
 //for animation
 .animated {
 	-webkit-animation-duration: 1s;
@@ -186,9 +187,39 @@ input[type=number]::-webkit-outer-spin-button {
     animation-name: fadeIn;
 }
 
+.fade {
+    -webkit-animation-name: fade;
+    animation-name: fade;
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+@keyframes fade {
+    from {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
 .showElem {
     display: flex;
 }
+
+//for blocked buttons of calculator
+
 
 //buttonUp
 .pageUpButton {
@@ -251,6 +282,7 @@ header .container {
 
 //mobile menu 
 .mobile_menu {
+    display: flex;
     box-sizing: border-box;
     position: absolute;
     right: 0;
@@ -258,14 +290,17 @@ header .container {
     padding-top: 21px;
     padding-bottom: 21px;
     width: 100%;
-    max-width: 425px;
-    display: none;
+    max-width: 426px;
     flex-direction: column;
     align-items: center;
     border-left: 1px solid $grey;
-    border-bottom: 1px solid $grey;
     background-color: $white;
     z-index: 10;
+    overflow: hidden;
+    padding: 0;
+    height: 0;
+    padding: 0;
+    transition: all 0.2s linear;
 
     .logo {
         margin-bottom: 25px;
@@ -334,7 +369,10 @@ header .container {
 }
 
 .show_mobile_menu {
-    display: flex;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    height: 285px;
+    border-bottom: 1px solid $grey;
 }
 
 .main {
@@ -582,6 +620,7 @@ header .container {
 
             .calculator {
                 margin-bottom: 60px;
+                min-height: 344px;
 
                 .project_type {
                     margin-bottom: 30px;
@@ -616,6 +655,7 @@ header .container {
                     justify-content: space-between;
                     align-items: center;
                     margin-bottom: 30px;
+                    min-height: 51px;
 
                     .counter_block_label {
                         width: 60%;
@@ -644,13 +684,17 @@ header .container {
                         border-bottom: 1px solid $black;
                     }
                 }
+
+                .counter_block_disabled {
+                    opacity: 0.5;
+                }
             }
 
             .buttons_switch {
                 width: 100%;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: space-around;
 
                 .prev, .next {
                     width: 115px;
@@ -658,7 +702,8 @@ header .container {
                     border-radius: 5px;
                     background-color: $black;
                     cursor: pointer;
-                    transition: 0.1s background-color linear;
+                    transition: 0.3s background-color linear;
+
 
                     .inner_button {
                         width: 60px;
@@ -675,11 +720,7 @@ header .container {
 
                 }
 
-                .prev:hover {
-                    background-color: $grey;
-                }
-
-                .next:hover {
+                .blocked_button {
                     background-color: $grey;
                 }
 
@@ -900,9 +941,24 @@ footer .container {
 
 //Adaptive
 
-@media (max-width: 1440px) {
+@media (max-width: 1450px) {
     .ed_full_description {
         width: 50%;
+    }
+
+    .calculation {
+
+        .container {
+
+            .calculator_wrapper {
+                padding-left: 10%;
+                padding-right: 10%;
+
+                .calculator {
+                    min-height: 342px;
+                }
+            }
+        }
     }
 }
 
@@ -975,6 +1031,18 @@ footer .container {
 }
 
 @media(max-width: 1024px) {
+    .calculation {
+
+        .container {
+
+            .calculator_wrapper {
+
+                .calculator {
+                    min-height: 344px;
+                }
+            }
+        }
+    }
     .contacts {
 
         .container {
@@ -987,6 +1055,7 @@ footer .container {
             }
         }
     }
+
 
     footer {
         
@@ -1198,6 +1267,19 @@ footer .container {
         }
     }
 
+    .calculation {
+
+        .container {
+
+            .calculator_wrapper {
+
+                .calculator {
+                    min-height: 384px;
+                }
+            }
+        }
+    }
+
     .contacts {
         margin-bottom: 30px;
 
@@ -1343,6 +1425,13 @@ footer .container {
                 padding-bottom: 30px;
                 box-sizing: border-box;
 
+                .calculator {
+
+                    .project_type label[for=landingButton] {
+                        margin-bottom: 15px;
+                    }
+                }
+
                 .buttons_switch {
                     flex-wrap: wrap;
 
@@ -1448,6 +1537,9 @@ footer .container {
         font-size: 25px;
     }
 
+    .mobile_menu {
+        border-left: 1px solid transparent;
+    }
     .main {
 
         .container {
@@ -1506,6 +1598,8 @@ footer .container {
         .container {
             padding-bottom: 0;
         }
+
+        
     }
 
     .contacts {

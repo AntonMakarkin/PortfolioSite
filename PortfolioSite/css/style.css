@@ -374,6 +374,23 @@ input[type=number]::-webkit-outer-spin-button {
   animation-name: fadeIn;
 }
 
+.fade {
+  animation-name: fade;
+  animation-duration: 2.5s;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .showElem {
   display: flex;
 }
@@ -438,6 +455,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
 }
 
 .mobile_menu {
+  display: flex;
   box-sizing: border-box;
   position: absolute;
   right: 0;
@@ -445,14 +463,17 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   padding-top: 21px;
   padding-bottom: 21px;
   width: 100%;
-  max-width: 425px;
-  display: none;
+  max-width: 426px;
   flex-direction: column;
   align-items: center;
   border-left: 1px solid #565656;
-  border-bottom: 1px solid #565656;
   background-color: #FFFFFF;
   z-index: 10;
+  overflow: hidden;
+  padding: 0;
+  height: 0;
+  padding: 0;
+  transition: all 0.2s linear;
 }
 
 .mobile_menu .logo {
@@ -518,7 +539,10 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
 }
 
 .show_mobile_menu {
-  display: flex;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  height: 285px;
+  border-bottom: 1px solid #565656;
 }
 
 .main .container {
@@ -733,6 +757,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
 
 .calculation .container .calculator_wrapper .calculator {
   margin-bottom: 60px;
+  min-height: 344px;
 }
 
 .calculation .container .calculator_wrapper .calculator .project_type {
@@ -768,6 +793,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  min-height: 51px;
 }
 
 .calculation .container .calculator_wrapper .calculator .counter_blocks .counter_block_label {
@@ -797,11 +823,15 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   border-bottom: 1px solid #000000;
 }
 
+.calculation .container .calculator_wrapper .calculator .counter_block_disabled {
+  opacity: 0.5;
+}
+
 .calculation .container .calculator_wrapper .buttons_switch {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .calculation .container .calculator_wrapper .buttons_switch .prev,
@@ -811,7 +841,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   border-radius: 5px;
   background-color: #000000;
   cursor: pointer;
-  transition: 0.1s background-color linear;
+  transition: 0.3s background-color linear;
 }
 
 .calculation .container .calculator_wrapper .buttons_switch .prev .inner_button,
@@ -829,11 +859,7 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   color: #FFFFFF;
 }
 
-.calculation .container .calculator_wrapper .buttons_switch .prev:hover {
-  background-color: #565656;
-}
-
-.calculation .container .calculator_wrapper .buttons_switch .next:hover {
+.calculation .container .calculator_wrapper .buttons_switch .blocked_button {
   background-color: #565656;
 }
 
@@ -1041,9 +1067,18 @@ footer .container .footer_content .footer_contacts a {
   font-size: 13px;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1450px) {
   .ed_full_description {
     width: 50%;
+  }
+
+  .calculation .container .calculator_wrapper {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .calculation .container .calculator_wrapper .calculator {
+    min-height: 342px;
   }
 }
 
@@ -1078,6 +1113,10 @@ footer .container .footer_content .footer_contacts a {
 }
 
 @media (max-width: 1024px) {
+  .calculation .container .calculator_wrapper .calculator {
+    min-height: 344px;
+  }
+
   .contacts .container .contacts_wrapper .form {
     width: 300px;
   }
@@ -1236,6 +1275,10 @@ footer .container .footer_content .footer_contacts a {
     padding-top: 30px;
   }
 
+  .calculation .container .calculator_wrapper .calculator {
+    min-height: 384px;
+  }
+
   .contacts {
     margin-bottom: 30px;
   }
@@ -1334,6 +1377,10 @@ footer .container .footer_content .footer_contacts a {
     box-sizing: border-box;
   }
 
+  .calculation .container .calculator_wrapper .calculator .project_type label[for=landingButton] {
+    margin-bottom: 15px;
+  }
+
   .calculation .container .calculator_wrapper .buttons_switch {
     flex-wrap: wrap;
   }
@@ -1417,6 +1464,10 @@ footer .container .footer_content .footer_contacts a {
 @media (max-width: 426px) {
   h2 {
     font-size: 25px;
+  }
+
+  .mobile_menu {
+    border-left: 1px solid transparent;
   }
 
   .main .container .description {

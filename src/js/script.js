@@ -5,6 +5,7 @@ import floatHeader from './modules/floatheader';
 import useWebp from './modules/testwebp';
 import scrolling from './modules/scrolling';
 import calculator from './modules/calculator';
+import toggleMobileMenu from './modules/togglemenu';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -15,8 +16,13 @@ window.addEventListener('DOMContentLoaded', () => {
         headerSelector: 'header'
     });
     scrolling('.pageUpButton');
-    calculator();
-
+    calculator('fade', 'blocked_button');
+    toggleMobileMenu({
+        menuBtnSelector: '.menu_button',
+        mobileMenuBtnSelector: '.mobile_menu > .menu_button',
+        mobileMenuSelector: '.mobile_menu',
+        mobileMenuActiveClass: 'show_mobile_menu'
+    });
 });
 
 

@@ -2989,38 +2989,80 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var calculator = function calculator() {
-  var slideIndex = 1;
+var calculator = function calculator(animationClass, blockBtnClass) {
+  var slideIndex = 1,
+      numberOfPages,
+      numbersOfBlocks,
+      numberOfHardBlocks,
+      numberOfSlides,
+      numberOfForms,
+      numberOfCalculators;
   var slides = document.querySelectorAll('.calculator'),
+      slidesLength = slides.length,
       prev = document.querySelector('.prev'),
-      next = document.querySelector('.next');
-  showSlides(slideIndex);
+      next = document.querySelector('.next'),
+      landingCheckBox = document.querySelector('input[id="landingButton"]'),
+      siteCheckBox = document.querySelector('input[id="siteButton"]'),
+      inputs = document.querySelectorAll('.counter_input');
+  console.log(inputs);
+  slides.forEach(function (item) {
+    return item.classList.add(animationClass);
+  });
 
-  function showSlides(n) {
-    if (n == slides.length) {
-      next.disabled = true;
-      next.style.background = 'grey';
+  function showSlides(numberOfSlide) {
+    switch (numberOfSlide) {
+      case slidesLength:
+        prev.disabled = false;
+        prev.classList.remove(blockBtnClass);
+        next.disabled = true;
+        next.classList.add(blockBtnClass);
+        break;
+
+      case 1:
+        prev.disabled = true;
+        prev.classList.add(blockBtnClass);
+        next.disabled = false;
+        next.classList.remove(blockBtnClass);
+        break;
+
+      default:
+        prev.disabled = false;
+        prev.classList.remove(blockBtnClass);
+        next.disabled = false;
+        next.classList.remove(blockBtnClass);
     }
 
     slides.forEach(function (item) {
-      item.style.display = 'none'; //hide slides
+      item.classList.add('showHide'); //hide slides
+
+      item.classList.remove('showActive');
     });
-    slides[slideIndex - 1].style.display = 'block';
+    slides[slideIndex - 1].classList.remove('showHide');
+    slides[slideIndex - 1].classList.add('showActive');
   }
 
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
+  function changeSlide(changeDirection) {
+    showSlides(slideIndex += changeDirection);
   }
 
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
+  function getStaticInformation() {
+    landingCheckBox.addEventListener('change', function () {
+      siteCheckBox.checked = false;
+      numberOfPages = 1;
+    });
+    siteCheckBox.addEventListener('change', function () {
+      landingCheckBox.checked = false; //numberOfPages
+    });
+  } //calcTotal();
 
+
+  showSlides(slideIndex);
   prev.addEventListener('click', function () {
-    plusSlides(-1);
+    //if (landingCheckBox.checked == false || siteCheckBox.checked == false)
+    changeSlide(-1);
   });
   next.addEventListener('click', function () {
-    plusSlides(1);
+    changeSlide(1);
   });
 };
 
@@ -3072,8 +3114,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var scrolling = function scrolling(upElemSelector) {
-  var upElem = document.querySelector(upElemSelector);
-  var mainBlockHeight = document.querySelector('.main').clientHeight;
+  var upElem = document.querySelector(upElemSelector),
+      mainBlockHeight = document.querySelector('.main').clientHeight,
+      mobileMenu = document.querySelector('.mobile_menu');
   upElem.style.pointerEvents = 'none';
   window.addEventListener('scroll', function () {
     if (document.documentElement.scrollTop >= mainBlockHeight) {
@@ -3092,6 +3135,7 @@ var scrolling = function scrolling(upElemSelector) {
   links.forEach(function (link) {
     link.addEventListener('click', function (event) {
       event.preventDefault();
+      mobileMenu.classList.remove('show_mobile_menu');
       var widthTop = document.documentElement.scrollTop,
           hash = this.hash,
           toBlock = document.querySelector(hash).getBoundingClientRect().top,
@@ -3155,6 +3199,35 @@ var usewebp = function usewebp() {
 
 /***/ }),
 
+/***/ "./src/js/modules/togglemenu.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/togglemenu.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var toggleMobileMenu = function toggleMobileMenu(_ref) {
+  var menuBtnSelector = _ref.menuBtnSelector,
+      mobileMenuBtnSelector = _ref.mobileMenuBtnSelector,
+      mobileMenuSelector = _ref.mobileMenuSelector,
+      mobileMenuActiveClass = _ref.mobileMenuActiveClass;
+  var menuBtn = document.querySelector(menuBtnSelector),
+      mobileMenuButton = document.querySelector(mobileMenuBtnSelector),
+      mobileMenu = document.querySelector(mobileMenuSelector);
+  menuBtn.addEventListener('click', function () {
+    mobileMenu.classList.toggle(mobileMenuActiveClass);
+  });
+  mobileMenuButton.addEventListener('click', function () {
+    mobileMenu.classList.toggle(mobileMenuActiveClass);
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (toggleMobileMenu);
+
+/***/ }),
+
 /***/ "./src/js/script.js":
 /*!**************************!*\
   !*** ./src/js/script.js ***!
@@ -3170,7 +3243,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_testwebp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/testwebp */ "./src/js/modules/testwebp.js");
 /* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/scrolling */ "./src/js/modules/scrolling.js");
 /* harmony import */ var _modules_calculator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/calculator */ "./src/js/modules/calculator.js");
+/* harmony import */ var _modules_togglemenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/togglemenu */ "./src/js/modules/togglemenu.js");
 __webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-promise.js").polyfill();
+
 
 
 
@@ -3186,7 +3261,13 @@ window.addEventListener('DOMContentLoaded', function () {
     headerSelector: 'header'
   });
   Object(_modules_scrolling__WEBPACK_IMPORTED_MODULE_3__["default"])('.pageUpButton');
-  Object(_modules_calculator__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_modules_calculator__WEBPACK_IMPORTED_MODULE_4__["default"])('fade', 'blocked_button');
+  Object(_modules_togglemenu__WEBPACK_IMPORTED_MODULE_5__["default"])({
+    menuBtnSelector: '.menu_button',
+    mobileMenuBtnSelector: '.mobile_menu > .menu_button',
+    mobileMenuSelector: '.mobile_menu',
+    mobileMenuActiveClass: 'show_mobile_menu'
+  });
 }); //Slider-calculator
 
 /*let slideIndex = 1;

@@ -1,7 +1,8 @@
 const scrolling = (upElemSelector) => {
-    const upElem = document.querySelector(upElemSelector);
-    const mainBlockHeight = document.querySelector('.main').clientHeight;
-    upElem.style.pointerEvents = 'none';
+    const upElem = document.querySelector(upElemSelector),
+          mainBlockHeight = document.querySelector('.main').clientHeight,
+          mobileMenu = document.querySelector('.mobile_menu');
+          upElem.style.pointerEvents = 'none';
 
     window.addEventListener('scroll', () => {
         if (document.documentElement.scrollTop >= mainBlockHeight) {
@@ -23,6 +24,8 @@ const scrolling = (upElemSelector) => {
     links.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
+
+            mobileMenu.classList.remove('show_mobile_menu');
 
             let widthTop = document.documentElement.scrollTop,
                 hash = this.hash,
