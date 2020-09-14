@@ -190,10 +190,10 @@ input[type=number]::-webkit-outer-spin-button {
 .fade {
     -webkit-animation-name: fade;
     animation-name: fade;
-    -webkit-animation-duration: 2.5s;
-    animation-duration: 2.5s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 2.5s;
+    -webkit-animation-duration: 1s;
 }
 
 @-webkit-keyframes fade {
@@ -703,7 +703,6 @@ header .container {
                     background-color: $black;
                     cursor: pointer;
                     transition: 0.3s background-color linear;
-
 
                     .inner_button {
                         width: 60px;
