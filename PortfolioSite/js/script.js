@@ -2989,7 +2989,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var calculator = function calculator(animationClass, blockBtnClass) {
+var calculator = function calculator(_ref) {
+  var animationClass = _ref.animationClass,
+      blockBtnClass = _ref.blockBtnClass;
   var slideIndex = 1,
       numberOfPages = 1,
       numberOfBlocks,
@@ -3004,8 +3006,8 @@ var calculator = function calculator(animationClass, blockBtnClass) {
       costOfModal = 600,
       costOfForm = 1000,
       costOfCalculator = 1500,
-      costOfAdaptive,
-      costOfHosting;
+      costOfAdaptive = 2000,
+      costOfHosting = 1500;
   var slides = document.querySelectorAll('.calculator'),
       slidesLength = slides.length,
       prev = document.querySelector('.prev'),
@@ -3084,8 +3086,8 @@ var calculator = function calculator(animationClass, blockBtnClass) {
   }
 
   function calcTotal() {
-    var cost = numberOfPages * (numberOfBlocks * costOfBlock - numberOfHardBlocks * costOfBlock + numberOfHardBlocks * costOfHardBlock + numberOfSliders * costOfSlider + numberOfModals * costOfModal + numberOfForms * costOfForm + numberOfCalculators * costOfCalculator) + costOfAdaptive + costOfHosting; //let cost = numberOfPages;
-
+    var cost = numberOfPages * (numberOfBlocks * costOfBlock - numberOfHardBlocks * costOfBlock + numberOfHardBlocks * costOfHardBlock + numberOfSliders * costOfSlider + numberOfModals * costOfModal + numberOfForms * costOfForm + numberOfCalculators * costOfCalculator) + (costOfAdaptive + costOfHosting);
+    result.style.fontssize = "100px";
     result.textContent = cost;
     console.log(cost);
   }
@@ -3142,13 +3144,12 @@ var calculator = function calculator(animationClass, blockBtnClass) {
   }); //take number of hard blocks from input
 
   inputNumberOfHardBlocks.addEventListener('input', function () {
-    numberOfHardBlocks = +inputNumberOfHardBlocks.value;
+    var nmbOfHrdBlcks = +inputNumberOfHardBlocks.value;
 
-    if (numberOfHardBlocks > numberOfBlocks) {
+    if (nmbOfHrdBlcks > numberOfBlocks) {
       this.value = '';
-      numberOfHardBlocks = 0;
     } else {
-      numberOfHardBlocks = +numberOfHardBlocks.value;
+      numberOfHardBlocks = nmbOfHrdBlcks;
     }
 
     checkTheFirstBlock();
@@ -3394,7 +3395,10 @@ window.addEventListener('DOMContentLoaded', function () {
     headerSelector: 'header'
   });
   Object(_modules_scrolling__WEBPACK_IMPORTED_MODULE_3__["default"])('.pageUpButton');
-  Object(_modules_calculator__WEBPACK_IMPORTED_MODULE_4__["default"])('fade', 'blocked_button');
+  Object(_modules_calculator__WEBPACK_IMPORTED_MODULE_4__["default"])({
+    animationClass: 'fade',
+    blockBtnClass: 'blocked_button'
+  });
   Object(_modules_togglemenu__WEBPACK_IMPORTED_MODULE_5__["default"])({
     menuBtnSelector: '.menu_button',
     mobileMenuBtnSelector: '.mobile_menu > .menu_button',

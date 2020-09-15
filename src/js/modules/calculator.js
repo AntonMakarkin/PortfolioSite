@@ -1,10 +1,10 @@
-const calculator = (animationClass, blockBtnClass) => {
+const calculator = ({animationClass, blockBtnClass}) => {
     let slideIndex = 1,
         numberOfPages = 1, numberOfBlocks, numberOfHardBlocks,
         numberOfSliders, numberOfModals, numberOfForms, numberOfCalculators;
 
     let costOfBlock = 500, costOfHardBlock = 1000, costOfSlider = 1000,
-        costOfModal = 600, costOfForm = 1000, costOfCalculator = 1500, costOfAdaptive, costOfHosting;
+        costOfModal = 600, costOfForm = 1000, costOfCalculator = 1500, costOfAdaptive = 2000, costOfHosting = 1500;
 
     const slides = document.querySelectorAll('.calculator'),
           slidesLength = slides.length,
@@ -89,10 +89,12 @@ const calculator = (animationClass, blockBtnClass) => {
     }
 
     function calcTotal() {
-        let cost = numberOfPages * ((numberOfBlocks * costOfBlock) - (numberOfHardBlocks * costOfBlock) + (numberOfHardBlocks * costOfHardBlock) + (numberOfSliders * costOfSlider) + (numberOfModals * costOfModal) + (numberOfForms * costOfForm) + (numberOfCalculators * costOfCalculator)) + costOfAdaptive + costOfHosting;
+        let cost = numberOfPages * ((numberOfBlocks * costOfBlock) - (numberOfHardBlocks * costOfBlock) + 
+        (numberOfHardBlocks * costOfHardBlock) + (numberOfSliders * costOfSlider) + 
+        (numberOfModals * costOfModal) + (numberOfForms * costOfForm) + 
+        (numberOfCalculators * costOfCalculator)) + (costOfAdaptive + costOfHosting);
 
-        //let cost = numberOfPages;
-
+        result.style.fontssize = "100px";
         result.textContent = cost;
         console.log(cost);
     }
@@ -154,13 +156,15 @@ const calculator = (animationClass, blockBtnClass) => {
 
     //take number of hard blocks from input
     inputNumberOfHardBlocks.addEventListener('input', function() {
-        numberOfHardBlocks = +inputNumberOfHardBlocks.value;
-        if(numberOfHardBlocks > numberOfBlocks) {
+
+        let nmbOfHrdBlcks = +inputNumberOfHardBlocks.value;
+
+        if (nmbOfHrdBlcks > numberOfBlocks) {
             this.value = '';
-            numberOfHardBlocks = 0;
         } else {
-            numberOfHardBlocks = +numberOfHardBlocks.value;
+            numberOfHardBlocks = nmbOfHrdBlcks;
         }
+
         checkTheFirstBlock();
         calcTotal();
     });

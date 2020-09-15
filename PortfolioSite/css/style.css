@@ -787,6 +787,31 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
   opacity: 0;
 }
 
+.calculation .container .calculator_wrapper .calculator .total_amount {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.calculation .container .calculator_wrapper .calculator .total_amount .amount {
+  display: block;
+  font-size: 70px;
+  line-height: 77%;
+  font-weight: 100;
+  margin-right: 10px;
+}
+
+.calculation .container .calculator_wrapper .calculator .total_amount .currency {
+  text-align: center;
+  align-self: flex-end;
+}
+
 .calculation .container .calculator_wrapper .calculator .counter_blocks {
   width: 100%;
   display: flex;
@@ -825,6 +850,10 @@ header .container .header .main_nav > .main_nav_list .main_nav_list_item > a {
 
 .calculation .container .calculator_wrapper .calculator .counter_block_disabled {
   opacity: 0.5;
+}
+
+.calculation .container .calculator_wrapper .total {
+  position: relative;
 }
 
 .calculation .container .calculator_wrapper .buttons_switch {
@@ -1534,6 +1563,22 @@ footer .container .footer_content .footer_contacts a {
     flex-direction: column;
     align-items: center;
     align-content: center;
+  }
+
+  .calculation .container .calculator_wrapper .calculator .total_amount {
+    flex-direction: column;
+  }
+
+  .calculation .container .calculator_wrapper .calculator .total_amount .amount {
+    margin: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .calculation .container .calculator_wrapper .calculator .total_amount .currency {
+    display: block;
+    margin: auto;
   }
 }
 

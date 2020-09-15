@@ -647,7 +647,36 @@ header .container {
                         z-index: -1;
                         opacity: 0;
                     }
+
                 }
+
+                .total_amount {
+                    position: absolute;
+                    margin: 0;
+                    top: 50%;
+                    left: 50%;
+                    margin-right: -50%;
+                    transform: translate(-50%, -50%);
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: center;
+
+                    .amount {
+                        display: block;
+                        font-size: 70px;
+                        line-height: 77%;
+                        font-weight: 100;
+                        margin-right: 10px;
+                    }
+
+                    .currency {
+                        text-align: center;
+                        align-self: flex-end;
+                        //font-size: 20px;
+                    }
+                }
+
+
 
                 .counter_blocks {
                     width: 100%;
@@ -688,6 +717,10 @@ header .container {
                 .counter_block_disabled {
                     opacity: 0.5;
                 }
+            }
+
+            .total {
+                position: relative;
             }
 
             .buttons_switch {
@@ -1671,6 +1704,28 @@ footer .container {
                     flex-direction: column;
                     align-items: center;
                     align-content: center;
+                }
+
+                .calculator {
+
+                    .total_amount {
+
+                        flex-direction: column;
+
+                        .amount {
+                            margin: auto;
+                            margin-left: 0;
+                            margin-right: 0;
+                            margin-bottom: 10px;
+                        }
+    
+                        .currency {
+                            display: block;
+                            margin: auto;
+                            //padding-left: 10px;
+                        }
+                    }
+
                 }
             }
         }

@@ -16,7 +16,10 @@ window.addEventListener('DOMContentLoaded', () => {
         headerSelector: 'header'
     });
     scrolling('.pageUpButton');
-    calculator('fade', 'blocked_button');
+    calculator({
+        animationClass: 'fade',
+        blockBtnClass: 'blocked_button'
+    });  
     toggleMobileMenu({
         menuBtnSelector: '.menu_button',
         mobileMenuBtnSelector: '.mobile_menu > .menu_button',
