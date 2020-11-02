@@ -215,12 +215,12 @@ function fontsStyle(params) {
 gulp.task("build-js", () => {
     return gulp.src("src/js/script.js")
                .pipe(webpack({
-                   mode: 'development',
+                   mode: 'production',
                    output: {
                        filename: 'script.js'
                    },
                    watch: false,
-                   devtool: "source-map",
+                   //devtool: "source-map",
                    module: {
                        rules: [
                            {
@@ -230,7 +230,7 @@ gulp.task("build-js", () => {
                                    loader: 'babel-loader',
                                    options: {
                                        presets: [['@babel/preset-env', {
-                                           debug: true,
+                                           //debug: true,
                                            corejs: 3,
                                            useBuiltIns: "usage"
                                        }]]
@@ -245,7 +245,7 @@ gulp.task("build-js", () => {
 });
 
 gulp.task("build-prod-js", () => {
-    return gulp.src("./src/js/main.js")
+    return gulp.src("./src/js/script.js")
                .pipe(webpack({
                    mode: 'production',
                    output: {
@@ -259,9 +259,12 @@ gulp.task("build-prod-js", () => {
                                use: {
                                    loader: 'babel-loader',
                                    options: {
-                                       presets: [['@babel/present-env', {
-                                           corejs: 3,
-                                           useBuiltIns: "usage"
+                                       presets: [["@babel/present-env", {
+                                           targets: {
+                                               "node": "current"
+                                           },
+                                           "corejs": 3,
+                                           "useBuiltIns": "usage"
                                        }]]
                                    }
                                }   
@@ -269,7 +272,8 @@ gulp.task("build-prod-js", () => {
                        ]
                    }
                }))
-               .pipe(gulp.dest(path.build.js));
+               .pipe(gulp.dest(path.build.js))
+               .on("end", browsersync.reload);
 });
 
 function cb() {

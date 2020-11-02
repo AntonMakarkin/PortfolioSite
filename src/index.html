@@ -187,62 +187,78 @@
             <div class="container">
                 <h2>Последние работы</h2>
                 <div class="portfolio_items">
-                    <div class="portfolio_item">
-                        <img src="img/ApartDesign.jpg" alt="">
-                        <div class="project_description">
-                            <span>ApartDesign</span>
-                            <p>Макет лендинга</p>
+                    <a href="">
+                        <div class="portfolio_item">
+                            <img src="img/ApartDesign.jpg" alt="">
+                            <div class="project_description">
+                                <span>ApartDesign</span>
+                                <p>Макет лендинга</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio_item">
-                        <img src="img/SpaceX.jpg" alt="">
-                        <div class="project_description">
-                            <span>SpaceX</span>
-                            <p>Макет промо-сайта</p>
+                    </a>
+                    <a href="https://antonmakarkin.github.io/SpaceX-Promo-Layout/">
+                        <div class="portfolio_item">
+                            <img src="img/SpaceX.jpg" alt="">
+                            <div class="project_description">
+                                <span>SpaceX</span>
+                                <p>Макет промо-сайта</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio_item">
-                        <img src="img/Witcher.jpg" alt="">
-                        <div class="project_description">
-                            <span>Ведьмак</span>
-                            <p>Макет промо-сайта</p>
+                    </a>
+                    <a href="">
+                        <div class="portfolio_item">
+                            <img src="img/Witcher.jpg" alt="">
+                            <div class="project_description">
+                                <span>Ведьмак</span>
+                                <p>Макет промо-сайта</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio_item">
-                        <img src="img/GhostBusters.jpg" alt="">
-                        <div class="project_description">
-                            <span>Охотники за привидениями</span>
-                            <p>Макет страницы сайта</p>
+                    </a>
+                    <a href="https://antonmakarkin.github.io/GhostBusters-Layout/">
+                        <div class="portfolio_item">
+                            <img src="img/GhostBusters.jpg" alt="">
+                            <div class="project_description">
+                                <span>Охотники за привидениями</span>
+                                <p>Макет страницы сайта</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio_item">
-                        <img src="img/DeliveryFood.jpg" alt="">
-                        <div class="project_description">
-                            <span>Food Delivery</span>
-                            <p>Макет сайта службы доставки</p>
+                    </a>
+                    <a href="">
+                        <div class="portfolio_item">
+                            <img src="img/DeliveryFood.jpg" alt="">
+                            <div class="project_description">
+                                <span>Food Delivery</span>
+                                <p>Макет сайта службы доставки</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio_item">
-                        <img src="img/CloudBudget.jpg" alt="">
-                        <div class="project_description">
-                            <span>CloudBudget</span>
-                            <p>Макет лендинга</p>
+                    </a>
+                    <a href="">
+                        <div class="portfolio_item">
+                            <img src="img/CloudBudget.jpg" alt="">
+                            <div class="project_description">
+                                <span>CloudBudget</span>
+                                <p>Макет лендинга</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio_item">
-                        <img src="img/Luxestate.jpg" alt="">
-                        <div class="project_description">
-                            <span>Luxestate</span>
-                            <p>Макет лендинга</p>
+                    </a>
+                    <a href="">
+                        <div class="portfolio_item">
+                            <img src="img/Luxestate.jpg" alt="">
+                            <div class="project_description">
+                                <span>Luxestate</span>
+                                <p>Макет лендинга</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio_item">
-                        <img src="img/Witcher.jpg" alt="">
-                        <div class="project_description">
-                            <span>Звездные войны</span>
-                            <p>Макет промо-сайта</p>
+                    </a>
+                    <a href="">
+                        <div class="portfolio_item">
+                            <img src="img/Witcher.jpg" alt="">
+                            <div class="project_description">
+                                <span>Звездные войны</span>
+                                <p>Макет промо-сайта</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -362,7 +378,7 @@
                         <div class="calculator_slider_counter">
                             <span id="current">01</span>
                             /                   
-                            <span id="idtotal">04</span>
+                            <span id="total">04</span>
                         </div>
                         <button class="next">
                             <div class="inner_button">
@@ -378,7 +394,10 @@
             <div class="container">
                 <h2>Свяжитесь со мной</h2>
                 <div class="contacts_wrapper">
-                    <form class="form">
+                    <form action="#" name="main_form" class="form">
+                        <div class="loadscreen showHideLoader">
+                            <div class="spinner"></div>
+                        </div>
                         <span>Можете просто оставить заявку, я отвечу вам сегодня</span>
                         <input type="text" name="name" class="feedback_input" placeholder="Ваше имя" id="name">
                         <input type="email" name="email" class="feedback_input" placeholder="Ваше почта" id="email">
@@ -502,6 +521,13 @@
         <a href="#up" class="pageUpButton">
             <img src="svg/up_arrow.svg" alt="up">
         </a>
+        <div class="overlay showHideModal">
+            <div class="popup">
+                <h2></h2>
+                <p></p>
+                <div class="close_popup"></div>
+            </div>
+        </div>
     </footer>
 </body>
 <script src="js/script.js"></script>

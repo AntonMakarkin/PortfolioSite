@@ -1,15 +1,33 @@
-const calculator = ({animationClass, blockBtnClass}) => {
+const calculator = ({animationClass, blockBtnClass, currentCounter, totalCounter,
+                    blockPrice, hardBlockPrice, sliderPrice, modalPrice, 
+                    formPrice, calculatorPrice, adaptivePrice, hostingPrice}) => {
     let slideIndex = 1,
-        numberOfPages = 1, numberOfBlocks, numberOfHardBlocks,
-        numberOfSliders, numberOfModals, numberOfForms, numberOfCalculators;
+        numberOfPages = 1, 
+        numberOfBlocks = 0, 
+        numberOfHardBlocks = 0,
+        numberOfSliders = 0, 
+        numberOfModals = 0, 
+        numberOfForms = 0, 
+        numberOfCalculators = 0;
 
-    let costOfBlock = 500, costOfHardBlock = 1000, costOfSlider = 1000,
-        costOfModal = 600, costOfForm = 1000, costOfCalculator = 1500, costOfAdaptive = 2000, costOfHosting = 1500;
+    let costOfBlock = blockPrice, 
+        costOfHardBlock = hardBlockPrice, 
+        costOfSlider = sliderPrice, 
+        costOfModal = modalPrice, 
+        costOfForm = formPrice, 
+        costOfCalculator = calculatorPrice, 
+        costOfAdaptive = adaptivePrice, 
+        costOfHosting = hostingPrice, 
+        adaptive = 0,
+        hosting = 0,
+        totalPrice = 0;
 
     const slides = document.querySelectorAll('.calculator'),
           slidesLength = slides.length,
           prev = document.querySelector('.prev'),
           next = document.querySelector('.next'),
+          current = document.querySelector(currentCounter),
+          total = document.querySelector(totalCounter),
           landingCheckBox = document.querySelector('input[id="landingButton"]'),
           siteCheckBox = document.querySelector('input[id="siteButton"]'),
           inputBlocks = document.querySelectorAll('.counter_blocks'),
@@ -31,6 +49,17 @@ const calculator = ({animationClass, blockBtnClass}) => {
     //started state
     landingCheckBox.checked = true;
     result.textContent = '0';
+
+    //add zero to the counter
+    function AddZeroToCounterOfSlides(slides) {
+        if (slides.length < 10) {
+            total.textContent = `0${slides.length}`;
+            current.textContent = `0${slideIndex}`;
+        } else {
+            total.textContent = slides.length;
+            current.textContent = slideIndex;
+        }
+    }
 
     //slider of calculator
     function showSlides(numberOfSlide) {
@@ -89,14 +118,18 @@ const calculator = ({animationClass, blockBtnClass}) => {
     }
 
     function calcTotal() {
-        let cost = numberOfPages * ((numberOfBlocks * costOfBlock) - (numberOfHardBlocks * costOfBlock) + 
+        /*let cost = numberOfPages * ((numberOfBlocks * costOfBlock) - (numberOfHardBlocks * costOfBlock) + 
         (numberOfHardBlocks * costOfHardBlock) + (numberOfSliders * costOfSlider) + 
         (numberOfModals * costOfModal) + (numberOfForms * costOfForm) + 
-        (numberOfCalculators * costOfCalculator)) + (costOfAdaptive + costOfHosting);
+        (numberOfCalculators * costOfCalculator)) + (costOfAdaptive + costOfHosting);*/
 
-        result.style.fontssize = "100px";
-        result.textContent = cost;
-        console.log(cost);
+        totalPrice = numberOfPages * (((numberOfBlocks - numberOfHardBlocks) * costOfBlock) + 
+        (numberOfHardBlocks * costOfHardBlock) + (numberOfSliders * costOfSlider) + 
+        (numberOfModals * costOfModal) + (numberOfForms * costOfForm) + 
+        (numberOfCalculators * costOfCalculator)) + (adaptive + hosting);
+
+        result.textContent = totalPrice;
+        console.log(totalPrice);
     }
 
     calcTotal();
@@ -150,6 +183,7 @@ const calculator = ({animationClass, blockBtnClass}) => {
     //take number of blocks from input
     inputNumberOfBlocks.addEventListener('input', function() {
         numberOfBlocks = +inputNumberOfBlocks.value;
+        console.log(numberOfBlocks);
         checkTheFirstBlock();
         calcTotal();
     });
@@ -164,6 +198,8 @@ const calculator = ({animationClass, blockBtnClass}) => {
         } else {
             numberOfHardBlocks = nmbOfHrdBlcks;
         }
+
+        console.log(numberOfHardBlocks);
 
         checkTheFirstBlock();
         calcTotal();
@@ -191,37 +227,34 @@ const calculator = ({animationClass, blockBtnClass}) => {
 
     adaptiveCheckBox.addEventListener('change', function() {
         if(adaptiveCheckBox.checked == true) {
-            costOfAdaptive = 3000;
+            adaptive = costOfAdaptive;
         } else {
-            costOfAdaptive = 0;
+            adaptive = 0;
         }
         calcTotal();
     });
 
     hostingCheckBox.addEventListener('change', function() {
         if(hostingCheckBox.checked == true) {
-            costOfHosting = 1000;
+            hosting = costOfHosting;
         } else {
-            costOfHosting = 0;
+            hosting = 0;
         }
         calcTotal();
     });
 
-
-
-
-
-    //calcTotal();
-
     showSlides(slideIndex);
     checkTheFirstBlock();
+    AddZeroToCounterOfSlides(slides);
 
     prev.addEventListener('click', function() {
         changeSlide(-1);
+        AddZeroToCounterOfSlides(slides);
     });
 
     next.addEventListener('click', function() {
         changeSlide(1);
+        AddZeroToCounterOfSlides(slides);
     });
     
 };

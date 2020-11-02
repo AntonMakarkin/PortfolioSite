@@ -14,12 +14,13 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.7.4",
+    "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.12",
-    "core-js": "^3.4.2",
+    "core-js": "^3.6.5",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -44,7 +45,7 @@
     "webpack-stream": "^6.1.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.11.5",
+    "@babel/register": "^7.11.5",
     "es6-promise": "^4.2.8",
     "nodelist-foreach-polyfill": "^1.2.0"
   }

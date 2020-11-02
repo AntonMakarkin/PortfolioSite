@@ -6,6 +6,7 @@ import useWebp from './modules/testwebp';
 import scrolling from './modules/scrolling';
 import calculator from './modules/calculator';
 import toggleMobileMenu from './modules/togglemenu';
+import sendMail from './modules/form';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -18,7 +19,17 @@ window.addEventListener('DOMContentLoaded', () => {
     scrolling('.pageUpButton');
     calculator({
         animationClass: 'fade',
-        blockBtnClass: 'blocked_button'
+        blockBtnClass: 'blocked_button',
+        currentCounter: '#current',
+        totalCounter: '#total',
+        blockPrice: 500,
+        hardBlockPrice: 1000,
+        sliderPrice: 1000,
+        modalPrice: 600,
+        formPrice: 1000,
+        calculatorPrice: 1500,
+        adaptivePrice: 2000,
+        hostingPrice: 1500
     });  
     toggleMobileMenu({
         menuBtnSelector: '.menu_button',
@@ -26,12 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
         mobileMenuSelector: '.mobile_menu',
         mobileMenuActiveClass: 'show_mobile_menu'
     });
+    sendMail();
+
 });
 
-
-
-//Slider-calculator
-/*let slideIndex = 1;
-const calcSlides = document.querySelectorAll('.calculator'),
-      prev = document.querySelector('.prev'),
-      next = document.querySelector('.next');*/
